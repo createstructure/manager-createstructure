@@ -35,6 +35,7 @@ jobs:
       run: |
         echo "3.0 (native)" > ./debian/source/format
         dpkg-buildpackage -us -uc
+        mv ../${{ steps.envirorment-variables.outputs.DEB_FILE }} ./
 
     - name: Upload deb
       uses: actions/upload-release-asset@v1
@@ -90,7 +91,7 @@ jobs:
       run: |
         cd ..
         tar -czvf ${{ steps.envirorment-variables.outputs.TAR_FILE }} ./manager-createstructure
-        ls
+        cd manager-createstructure
         debuild -S -sa -k${{ secrets.GPG_KEY_ID }} -p"gpg --batch --passphrase ${{ secrets.GPG_PWS }} --pinentry-mode loopback"
     
     - name: Checks files
