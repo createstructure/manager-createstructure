@@ -101,4 +101,5 @@ jobs:
 
     - name: dput
       run: |
+        cd ..
         dput ppa:castellanidavide/createstructure ${{ steps.envirorment-variables.outputs.CHANGES_FILE }}
