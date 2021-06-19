@@ -1,5 +1,8 @@
 prefix = /usr/local
 
+all:
+	g++ ./bin/manager.cpp -o manager -lcurl -lcrypto -std=c++17
+
 install:
 	g++ ./bin/manager.cpp -o manager -lcurl -lcrypto -std=c++17
 	echo "DESTDIR: $(DESTDIR)"
