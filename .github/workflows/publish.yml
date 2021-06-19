@@ -19,16 +19,16 @@ jobs:
 
     - uses: oprypin/find-latest-tag@v1
       with:
-        repository: createstructure/createstructure
+        repository: createstructure/manager-createstructure
         releases-only: true 
       id : latest
 
     - name: Set envirorment varible(s)
       run: |
-        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/createstructure/releases/latest | jq -r '.upload_url')"  
+        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/manager-createstructure/releases/latest | jq -r '.upload_url')"  
         echo "::set-output name=VERSION_TAG::$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')"
-        echo "::set-output name=DEB_FILE::createstructure_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_amd64.deb"
-        echo "::set-output name=CHANGES_FILE::createstructure_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
+        echo "::set-output name=DEB_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_amd64.deb"
+        echo "::set-output name=CHANGES_FILE::cmanager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
       id: envirorment-variables
 
     - name: Create .deb file
@@ -63,16 +63,16 @@ jobs:
 
     - uses: oprypin/find-latest-tag@v1
       with:
-        repository: createstructure/createstructure
+        repository: createstructure/manager-createstructure
         releases-only: true 
       id : latest
 
     - name: Set envirorment varible(s)
       run: |
-        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/createstructure/releases/latest | jq -r '.upload_url')"  
+        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/manager-createstructure/releases/latest | jq -r '.upload_url')"  
         echo "::set-output name=VERSION_TAG::$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')"
-        echo "::set-output name=TAR_FILE::createstructure_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//').orig.tar.gz"
-        echo "::set-output name=CHANGES_FILE::createstructure_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
+        echo "::set-output name=TAR_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//').orig.tar.gz"
+        echo "::set-output name=CHANGES_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
       id: envirorment-variables
 
     - name: gpg import 
@@ -88,7 +88,9 @@ jobs:
         gpg --list-secret-keys
     - name: Create Debian package
       run: |
-        tar -czvf ${{ steps.envirorment-variables.outputs.TAR_FILE }} ./
+        cd ..
+        tar -czvf ${{ steps.envirorment-variables.outputs.TAR_FILE }} ./manager-createstructure
+        ls
         debuild -S -sa -k${{ secrets.GPG_KEY_ID }} -p"gpg --batch --passphrase ${{ secrets.GPG_PWS }} --pinentry-mode loopback"
     
     - name: Checks files
