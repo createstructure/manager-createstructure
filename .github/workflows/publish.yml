@@ -7,6 +7,8 @@ on:
 jobs:
   create-and-update-deb:
     runs-on: ubuntu-latest
+    environment:
+      name: deb
 
     steps:
     - uses: actions/checkout@v2
