@@ -35,7 +35,8 @@ jobs:
     - name: Create .deb file
       run: |
         cd debian
-        sudo echo "3.0 (native)" > debian/source/format
+        ls
+        sudo echo "3.0 (native)" > ./debian/source/format
         dpkg-buildpackage -us -uc
 
     - name: Upload deb
