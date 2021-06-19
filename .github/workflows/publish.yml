@@ -6,7 +6,6 @@ on:
 
 jobs:
   create-and-update-deb:
-    needs: pypi-install-test
     runs-on: ubuntu-latest
 
     steps:
@@ -50,7 +49,6 @@ jobs:
         asset_content_type: application/zip
 
   ppa:
-    needs: pypi-install-test
     runs-on: ubuntu-latest
     environment:
       name: ppa
