@@ -2,7 +2,7 @@ prefix = /usr/local
 
 install:
 	mv ./bin/* ./
-	g++ manager.cpp -o manager -lcurl -lcrypto
+	g++ manager.cpp -o manager -lcurl -lcrypto -std=c++17
 	echo $(DESTDIR)
 	echo $(prefix)
 	install manager $(DESTDIR)$(prefix)/bin
