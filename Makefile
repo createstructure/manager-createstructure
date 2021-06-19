@@ -1,7 +1,6 @@
 prefix = /usr/local
 
 install:
-	apt install libcurl4-openssl-dev libssl-dev -y
 	mv ./bin/* ./
 	g++ manager.cpp -o manager -lcurl -lcrypto
 	echo $(DESTDIR)
