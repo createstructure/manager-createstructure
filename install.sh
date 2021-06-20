@@ -36,6 +36,11 @@ apt full-upgrade -y > /dev/null
 echo -e "\xE2\x9C\x94 Updated & Upgraded"
 
 
+# Import ssh key(s)
+ssh-import-id-gh $GITHUB_USERNAME
+
+echo -e "\xE2\x9C\x94 Imported ssh key(s)"
+
 # Install Docker
 apt install docker.io -y > /dev/null
 docker login docker.pkg.github.com --username $GITHUB_USERNAME --password $GITHUB_TOKEN
