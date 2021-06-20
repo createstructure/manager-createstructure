@@ -104,6 +104,10 @@ systemctl enable createstructure.service > /dev/null
 echo -e "\xE2\x9C\x94 Created & cloned service"
 
 
+# Remove this file
+rm "$0"
+
+
 # End
 echo -e "\xE2\x9C\x94 End"
 echo "Made w/ ❤ by Castellani Davide (@DavideC03)"
