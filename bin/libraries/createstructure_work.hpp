@@ -33,7 +33,7 @@ map<string, messageType> messageTypeConvert =
 };
 
 // Definitions
-//#define DEBUG
+#define DEBUG
 
 // Global variabile(s)
 json settings;
