@@ -62,8 +62,8 @@ echo -e "\xE2\x9C\x94 Changed directory to /bin"
 
 
 # Install project & prepare data folder
-add-apt-repository ppa:castellanidavide/createstructure -y
-apt install manager -y
+add-apt-repository ppa:castellanidavide/createstructure -y > /dev/null
+apt install manager -y > /dev/null
 mkdir createstructure
 cd createstructure
 
