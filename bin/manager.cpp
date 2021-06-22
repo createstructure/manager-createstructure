@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
 		// Run job
 	        system(
 				(
-					string("docker run docker.pkg.github.com/createstructure/core-createstructure/core '") +
+					string("docker run ghcr.io/createstructure/core-createstructure '") +
 					data +
 #ifdef VIEW_OUTPUT
 					"' &"

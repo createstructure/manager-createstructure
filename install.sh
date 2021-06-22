@@ -43,8 +43,8 @@ echo -e "\xE2\x9C\x94 Imported ssh key(s)"
 
 # Install Docker
 apt install docker.io -y > /dev/null
-docker login docker.pkg.github.com --username $GITHUB_USERNAME --password $GITHUB_TOKEN
-docker pull docker.pkg.github.com/createstructure/core-createstructure/core
+docker login ghcr.io --username $GITHUB_USERNAME --password $GITHUB_TOKEN
+docker pull ghcr.io/createstructure/core-createstructure:latest
 
 echo -e "\xE2\x9C\x94 Installed Docker"
 
