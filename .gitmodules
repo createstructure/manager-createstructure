@@ -1,0 +1,3 @@
+[submodule "bin/libraries"]
+	path = bin/libraries
+	url = git@github.com:createstructure/libraries-createstructure.git
