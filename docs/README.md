@@ -79,7 +79,8 @@ Repo where there is everything you need for server management
 
 
 ---
-Made by Castellani Davide 
+Made w/ :love: by Castellani Davide 
 If you have any problem please contact me:
-- help@castellanidavide.it
-- [Issue](https://github.com/createstructure/manager-createstructure/issues)
+- [Discussion](https://github.com/createstructure/createstructure/discussions/new) and choose "manager-createstructure" category
+- [Issue](https://github.com/createstructure/manager-createstructure/issues/new)
+- [help@castellanidavide.it](mailto:help@castellanidavide.it)
