@@ -5,7 +5,6 @@
 
 // using ...
 using namespace std;
-using namespace std::this_thread;
 using json = nlohmann::json;
 
 // Definitions
@@ -46,6 +45,8 @@ int main(int argc, char *argv[]) {
 	 * output:
 	 *	- a run code: if it works in the correct way it will return 0
 	 */
+	cout << "Started manager" << endl;
+
 	// Function variable(s)
 	int i = 0;
 
