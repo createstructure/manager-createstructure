@@ -18,8 +18,22 @@ using json = nlohmann::json;
 #endif // DEBUG
 
 // Declared functions
-int main(int argc, char *argv[]);
 void eraseAllSubStr(string &mainStr, const string toErase);
+int main(int argc, char *argv[]);
+
+void eraseAllSubStr(string &mainStr, const string toErase) {
+        /* Decode Work: get decoded work instructions
+         *
+         * output:
+         *      - decoded work instructions
+		 *   
+         * output:
+         *      - decoded work instructions
+         */
+    size_t pos = string::npos;
+    while ((pos = mainStr.find(toErase) )!= string::npos)
+        mainStr.erase(pos, toErase.length());
+}
 
 // Code
 int main(int argc, char *argv[]) {
@@ -38,13 +52,10 @@ int main(int argc, char *argv[]) {
 #ifndef ONCE
 	while (true) {
 #endif // ONCE
-		// Block if the PC if full of work
-		if (percentageMemory() > 50 || !okMemory())
-	                while (!okMemory()) {
-	                        sleep_for(1s);
-	                }
 
-		// Get data
+		waitUntilOkMemory();
+
+			// Get data
 	        json jData = getWork();
 	        string data = jData["data"].dump();
 #ifdef DEFAULT
@@ -52,25 +63,26 @@ int main(int argc, char *argv[]) {
 #endif // DEFAULT
 	        eraseAllSubStr(data, "\\u0000");
 
-		// Run job
+			// Run job
 	        system(
-				(
-					string("docker run ghcr.io/createstructure/core-createstructure '") +
-					data +
-#ifdef VIEW_OUTPUT
-					"' &"
-#else // VIEW_OUTPUT
-					"' > /dev/null &"
-#endif // VIEW_OUTPUT
-				).c_str()
-			);
+					(
+						string("docker run ghcr.io/createstructure/core-createstructure '") +
+						data +
+	#ifdef VIEW_OUTPUT
+						"' &"
+	#else // VIEW_OUTPUT
+						"' > /dev/null &"
+	#endif // VIEW_OUTPUT
+					).c_str()
+				);
 	        cout << "Runned process n°" << i++ << endl;
 
-		// Set work as finished
+			
+			// Set work as finished
 	        json finishJson;
-	        finishJson["server_id"] = jData["data"]["server_id"].get<string>();
-	        finishJson["server_code"] = jData["data"]["server_code"].get<string>();
-	        finishJson["work_id"] = jData["data"]["work_id"].get<string>();
+			finishJson["server_id"] = jData["data"]["server_id"].get<string>();
+			finishJson["server_code"] = jData["data"]["server_code"].get<string>();
+			finishJson["work_id"] = jData["data"]["work_id"].get<string>();
                 string link("https:\u002F\u002Fwww.castellanidavide.it/other/rest/product/started_work.php");
 	        request(link, "", finishJson, "POST");
 	        sleep_for(500ms);
@@ -79,10 +91,4 @@ int main(int argc, char *argv[]) {
 #endif // ONCE
 
 	return 0;
-}
-
-void eraseAllSubStr(string &mainStr, const string toErase) {
-    size_t pos = string::npos;
-    while ((pos = mainStr.find(toErase) )!= string::npos)
-        mainStr.erase(pos, toErase.length());
 }

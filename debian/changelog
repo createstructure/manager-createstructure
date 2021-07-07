@@ -1,3 +1,9 @@
+manager (09.01.09) focal; urgency=medium
+
+  * Optimized some librerias
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 07 Jul 2021 14:45:00 +1000
+
 manager (09.01.08) focal; urgency=medium
 
   * Changed librerias management
