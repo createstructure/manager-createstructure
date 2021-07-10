@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
 	 *	- a run code: if it works in the correct way it will return 0
 	 */
 	cout << "Started manager" << endl;
+	auto start = chrono::high_resolution_clock::now();
 
 	// Function variable(s)
 	int i = 0;
@@ -56,37 +57,43 @@ int main(int argc, char *argv[]) {
 
 		waitUntilOkMemory();
 
-			// Get data
-	        json jData = getWork();
-	        string data = jData["data"].dump();
+		// Get data
+		json jData = getWork();
+		string data = jData["data"].dump();
 #ifdef DEFAULT
-		cout << data << endl;
+	cout << data << endl;
 #endif // DEFAULT
-	        eraseAllSubStr(data, "\\u0000");
+		eraseAllSubStr(data, "\\u0000");
 
-			// Run job
-	        system(
-					(
-						string("docker run ghcr.io/createstructure/core-createstructure '") +
-						data +
-	#ifdef VIEW_OUTPUT
-						"' &"
-	#else // VIEW_OUTPUT
-						"' > /dev/null &"
-	#endif // VIEW_OUTPUT
-					).c_str()
-				);
-	        cout << "Runned process n°" << i++ << endl;
+		// Run job
+		system(
+				(
+					string("docker run ghcr.io/createstructure/core-createstructure '") +
+					data +
+#ifdef VIEW_OUTPUT
+					"' &"
+#else // VIEW_OUTPUT
+					"' > /dev/null &"
+#endif // VIEW_OUTPUT
+				).c_str()
+			);
+		cout << "Runned process n°" << i++ << endl;
+		
+		// Set work as finished
+		json finishJson;
+		finishJson["server_id"] = jData["data"]["server_id"].get<string>();
+		finishJson["server_code"] = jData["data"]["server_code"].get<string>();
+		finishJson["work_id"] = jData["data"]["work_id"].get<string>();
+			string link("https:\u002F\u002Fwww.castellanidavide.it/other/rest/product/started_work.php");
+		request(link, "", finishJson, "POST");
+		sleep_for(500ms);
 
-			
-			// Set work as finished
-	        json finishJson;
-			finishJson["server_id"] = jData["data"]["server_id"].get<string>();
-			finishJson["server_code"] = jData["data"]["server_code"].get<string>();
-			finishJson["work_id"] = jData["data"]["work_id"].get<string>();
-                string link("https:\u002F\u002Fwww.castellanidavide.it/other/rest/product/started_work.php");
-	        request(link, "", finishJson, "POST");
-	        sleep_for(500ms);
+		// Check if it's time to reboot
+		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
+		if (tm.count() > 43200000) { // 43200000 = 12h in millisecond
+			system("sleep 1m; sudo reboot"); // Reboot PC
+			return 0; // Stop the manager to avoid work interruption
+		}
 #ifndef ONCE
 	}
 #endif // ONCE
