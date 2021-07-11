@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 		// Check if it's time to reboot
 		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
 		if (tm.count() > 43200000) { // 43200000 = 12h in millisecond
-			system("sleep 1m; sudo reboot"); // Reboot PC
+			system("sleep 1m; reboot"); // Reboot PC
 			return 0; // Stop the manager to avoid work interruption
 		}
 #ifndef ONCE

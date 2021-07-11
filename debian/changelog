@@ -1,3 +1,9 @@
+manager (09.01.12) focal; urgency=medium
+
+  * Fixed a bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 11 Jul 2021 10:15:00 +1000
+
 manager (09.01.11) focal; urgency=medium
 
   * Added auto-reboot every 12h
