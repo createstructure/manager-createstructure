@@ -46,7 +46,6 @@ int main(int argc, char *argv[]) {
 	 *	- a run code: if it works in the correct way it will return 0
 	 */
 	cout << "Started manager" << endl;
-	auto start = chrono::high_resolution_clock::now();
 
 	// Function variable(s)
 	int i = 0;
@@ -87,13 +86,6 @@ int main(int argc, char *argv[]) {
 			string link("https:\u002F\u002Fwww.castellanidavide.it/other/rest/product/started_work.php");
 		request(link, "", finishJson, "POST");
 		sleep_for(500ms);
-
-		// Check if it's time to reboot
-		chrono::duration<double, milli> tm = chrono::high_resolution_clock::now() - start;	// milliseconds
-		if (tm.count() > 43200000) { // 43200000 = 12h in millisecond
-			system("sleep 1m; reboot"); // Reboot PC
-			return 0; // Stop the manager to avoid work interruption
-		}
 #ifndef ONCE
 	}
 #endif // ONCE
