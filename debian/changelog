@@ -1,14 +1,20 @@
+manager (09.01.14) focal; urgency=medium
+
+  * Test auto-reboot
+
+ -- Castellani Davide <help@castellanidavide.it>  Thu, 15 Jul 2021 15:15:00 +1000
+
 manager (09.01.13) focal; urgency=medium
 
   * Fixed a bug
 
- -- Castellani Davide <help@castellanidavide.it>  Sat, 13 Jul 2021 21:15:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 13 Jul 2021 21:15:00 +1000
 
 manager (09.01.12) focal; urgency=medium
 
   * Fixed a bug
 
- -- Castellani Davide <help@castellanidavide.it>  Sat, 11 Jul 2021 10:15:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 11 Jul 2021 10:15:00 +1000
 
 manager (09.01.11) focal; urgency=medium
 
