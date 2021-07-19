@@ -5,6 +5,8 @@
 #include "libraries/bin/createstructure_memory.hpp"
 #include "libraries/bin/createstructure_work.hpp"
 #include "libraries/bin/createstructure_rest.hpp"
+#include "libraries/bin/createstructure_inputs.hpp"
+#include "libraries/bin/createstructure_help.hpp"
 
 // using ...
 using namespace std;
@@ -51,6 +53,10 @@ int main(int argc, char *argv[])
 	 *	- a run code: if it works in the correct way it will return 0
 	 */
 	cout << "Started manager" << endl;
+
+	// Check inputs
+	inputs in(argc, argv);
+	help h(in, "manager");
 
 	// Function variable(s)
 	int i = 0;
