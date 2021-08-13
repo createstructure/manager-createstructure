@@ -1,3 +1,9 @@
+manager (09.01.19) focal; urgency=medium
+
+  * Change reboot waiting-time (12h => 3h)
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 13 Aug 2021 16:00:00 +1000
+
 manager (09.01.18) focal; urgency=medium
 
   * Added help management
