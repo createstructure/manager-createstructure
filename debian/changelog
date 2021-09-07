@@ -1,3 +1,9 @@
+manager (09.01.20) focal; urgency=medium
+
+  * Try to change reboot waiting-time (3h => 6h)
+
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 07 Sep 2021 08:05:00 +1000
+
 manager (09.01.19) focal; urgency=medium
 
   * Change reboot waiting-time (12h => 3h)
