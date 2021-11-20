@@ -43,7 +43,7 @@ jobs:
         EOF
     - name: CHANGELOG file
       run: |
-        cp repo/docs/CHANGELOG.md wiki/
+        cp repo/debian/changelog wiki/
         cd wiki
         sed -i 's/Changelog/:octocat: Changelog :octocat:/g' CHANGELOG.md
         sed -i 's/# /## /g' CHANGELOG.md
@@ -56,7 +56,9 @@ jobs:
         echo "\`\`\`" >> Directory-Structure.md
         tree ../repo >> Directory-Structure.md
         echo "\`\`\`" >> Directory-Structure.md
-        sed -i 's/bin/bin # PHP source code/g' Directory-Structure.md
+        sed -i 's/debian/debian # debian control code/g' Directory-Structure.md
+        sed -i 's/bin/bin # source code/g' Directory-Structure.md
+        sed -i 's/docs/docs # documentation/g' Directory-Structure.md
     - name: Rebuild the manager-createstructure locally
       run: |
         cd wiki
@@ -144,7 +146,7 @@ jobs:
         cat wiki/_Header.md > repo/docs/README.md
         cat wiki/Home.md > repo/docs/README.md
         cat wiki/Directory-Structure.md >> repo/docs/README.md
-        cat wiki/CHANGELOG.md >> repo/docs/README.md
+        cat wiki/changelog >> repo/docs/README.md
         cat wiki/Rebuild_the_manager_createstructure_locally.md >> repo/docs/README.md
         cat wiki/_Footer.md >> repo/docs/README.md
     - name: git add & commit & upload wiki
