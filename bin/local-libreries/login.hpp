@@ -62,7 +62,7 @@ void Login::execute()
 	if (getuid())
 	{
 		cout << "Please run login as root" << endl;
-		cout << "eg. \"sudo manager login\"" << endl;
+		cout << "eg. \"sudo manager --login\"" << endl;
 		cout << endl
 			 << "More info in the manual: \"man manager\"" << endl;
 		return;
@@ -98,7 +98,7 @@ void Login::execute()
 			apt-get update > /dev/null; \
 			apt-get install docker-ce docker-ce-cli containerd.io -y > /dev/null; \
 			groupadd docker; \
-			usermod -aG docker $USER; \
+			usermod -aG docker $(logname); \
 		} \
 		");
 
@@ -106,25 +106,24 @@ void Login::execute()
 	cout << "Docker installed" << endl;
 #endif // DEBUG
 
-	// Install & Start Kind
+	// Install & Start minikube
 	system(
 		" \
-		kind version > /dev/null || { \
-			curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.8.1/kind-linux-$(dpkg --print-architecture); \
-			chmod +x ./kind; \
-			sudo mv ./kind /usr/local/bin; \
+		minikube version > /dev/null || { \
+			curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg --print-architecture); \
+			sudo install minikube-linux-amd64 /usr/local/bin/minikube; \
 		} \
 		");
 
-	system("sudo -u $(logname) kind create cluster");
-
+	system("sudo -u $(logname) minikube start");
+	
 #ifdef DEBUG
-	cout << "Kind installed & started" << endl;
+	cout << "Minikube installed & started" << endl;
 #endif // DEBUG
 
 	// Install Kubernetes
 	system(
-		"kubectl version > /dev/null || { \
+		"sudo -u $(logname) kubectl version > /dev/null || { \
 			curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -; \
 			echo \"deb https://apt.kubernetes.io/ kubernetes-xenial main\" | tee /etc/apt/sources.list.d/kubernetes.list; \
 			apt-get update > /dev/null; \
@@ -216,16 +215,16 @@ void Login::execute()
 	system((
 			   string("") +
 			   "sudo -u $(logname) kubectl create secret generic auth " +
-			   "--from-literal=server_name=" + Login::info["server-name"] + " " +
-			   "--from-literal=server_password=" + Login::info["server-password"] + " " +
+			   "--from-literal=server_name=\"" + Login::info["server-name"] + "\" " +
+			   "--from-literal=server_password=\"" + Login::info["server-password"] + "\" " +
 			   "--from-file=server_gpg_key=/tmp/private.pem")
 			   .c_str());
 	system((
 			   string("") +
 			   "sudo -u $(logname) kubectl create secret docker-registry docker" + " " +
 			   "--docker-server=https://ghcr.io" + " " +
-			   "--docker-username=" + Login::info["username"] + " " +
-			   "--docker-password=" + Login::info["password"] + " " +
+			   "--docker-username=\"" + Login::info["username"] + "\" " +
+			   "--docker-password=\"" + Login::info["password"] + "\" " +
 			   "--docker-email=davidecastellani@castellanidavide.it")
 			   .c_str());
 

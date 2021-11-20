@@ -17,9 +17,15 @@ spec:
     spec:
       containers:
       - name: core
-        image: grc.io/createstructure/core-createstructure:latest
+        image: ghcr.io/createstructure/core-createstructure:beta
         imagePullPolicy: "Always"
         volumeMounts:
         - name: auth
           readOnly: true
           mountPath: "/etc/auth"
+      imagePullSecrets:
+      - name: docker # Secret with Docker config
+      volumes:
+      - name: auth
+        secret:
+          secretName: auth
