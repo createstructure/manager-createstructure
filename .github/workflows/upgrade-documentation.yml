@@ -117,7 +117,7 @@ jobs:
         echo "Now you have to install building dependencies." >> Rebuild_the_manager_createstructure_locally.md
         echo "To install Dependes on the Virtual Machine you need to:" >> Rebuild_the_manager_createstructure_locally.md
         echo "- On the VM (Virtual Machine) open the terminal (\`Ctrl + Alt + T\`)" >> Rebuild_the_manager_createstructure_locally.md
-        echo "- On the terminal paste \`sudo apt update; sudo add-apt-repository ppa:jyrki-pulliainen/dh-virtualenv -y; sudo apt-get install git build-essential debhelper devscripts equivs dh-virtualenv python3.8 gnupg gnupg2 libcurl4-openssl-dev libssl-dev -y; git clone https://github.com/createstructure/manager-createstructure; cd manager-createstructure; echo "3.0 (native)" > ./debian/source/format\` and insert password" >> Rebuild_the_manager_createstructure_locally.md
+        echo "- On the terminal paste \`sudo apt update; sudo add-apt-repository ppa:jyrki-pulliainen/dh-virtualenv -y; sudo apt-get install git build-essential debhelper devscripts equivs dh-virtualenv python3.8 gnupg gnupg2 libcurl4-openssl-dev libssl-dev -y; git clone https://github.com/createstructure/manager-createstructure; cd manager-createstructure; echo \"3.0 (native)\" > ./debian/source/format\` and insert password" >> Rebuild_the_manager_createstructure_locally.md
         echo "" >> Rebuild_the_manager_createstructure_locally.md
         echo "### 4. Compile" >> Rebuild_the_manager_createstructure_locally.md
         echo "To compile type: \`dpkg-buildpackage -us -uc\`" >> Rebuild_the_manager_createstructure_locally.md
