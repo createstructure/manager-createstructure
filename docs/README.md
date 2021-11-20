@@ -1,86 +1,251 @@
-# manager-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/CastellaniDavide/manager-createstructure-manager-createstructure/blob/master/LICENSE) ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat) ![Version](https://img.shields.io/badge/version-v1.0-blue?style=flat) ![Language ...](https://img.shields.io/badge/language-...-yellowgreen?style=flat) ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-...-blue?style=flat) [![On GitHub](https://img.shields.io/badge/on%20GitHub-True-green?style=flat&logo=github)](https://github.com/createstructure/manager-createstructure)
+## :octocat: Description :octocat:
+Repo for managing the creation of the repos
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/5b8f42991e48d1ad0f54a18e131b5af3a7bebd750d1924e17639d072d69b7fc5/createstructure/manager-createstructure)
+## :octocat: Directory structure :octocat:
 
-## Description
-Repo where there is everything you need for server management
-
-## Table of contents
-- [manager-createstructure](#manager-createstructure)
-  - [Description](#description)
-  - [Table of contents](#table-of-contents)
-  - [Directories structure](#directories-structure)
-  - [Installation](#installation)
-    - [Requirements](#requirements)
-    - [Install](#install)
-    - [Run](#run)
-  - [Repo dependencies](#repo-dependencies)
-
-
-## Directories structure
 ```
-├── bin
-│   ├── libraries
-│   │   ├── createstructure_changes.hpp
-│   │   ├── createstructure_chooseTemplate.hpp
-│   │   ├── createstructure_cryptation.hpp
-│   │   ├── createstructure_download.hpp
-│   │   ├── createstructure_elaborate.hpp
-│   │   ├── createstructure_emoji.hpp
-│   │   ├── createstructure.hpp
-│   │   ├── createstructure_inputCheck.hpp
-│   │   ├── createstructure_memory.hpp
-│   │   ├── createstructure_positive.hpp
-│   │   ├── createstructure_replace.hpp
-│   │   ├── createstructure_rest.hpp
-│   │   ├── createstructure_split.hpp
-│   │   ├── createstructure_upload.hpp
-│   │   ├── createstructure_work.hpp
-│   │   └── json.hpp
-│   └── manager.cpp
-├── debian
+../repo
+├── Makefile
+├── bin # source code
+│   ├── global-libraries
+│   │   ├── bin # source code
+│   │   │   ├── createstructure.hpp
+│   │   │   ├── createstructure_debian # debian control code.hpp
+│   │   │   ├── createstructure_emoji.hpp
+│   │   │   ├── createstructure_help.hpp
+│   │   │   ├── createstructure_inputs.hpp
+│   │   │   ├── createstructure_login.hpp
+│   │   │   ├── createstructure_memory.hpp
+│   │   │   ├── createstructure_positive.hpp
+│   │   │   ├── createstructure_setting.hpp
+│   │   │   ├── createstructure_split.hpp
+│   │   │   ├── cryptation.hpp
+│   │   │   ├── inputs.hpp
+│   │   │   ├── json.hpp
+│   │   │   ├── rest.hpp
+│   │   │   └── sleep.hpp
+│   │   ├── docs # documentation
+│   │   │   ├── CHANGELOG.md
+│   │   │   ├── LICENSE
+│   │   │   ├── README.md
+│   │   │   └── dependeces.svg
+│   │   └── workflows
+│   │       ├── push.yml
+│   │       └── release.yml
+│   ├── local-libreries
+│   │   ├── help.hpp
+│   │   ├── login.hpp
+│   │   ├── memory.hpp
+│   │   └── version.hpp
+│   ├── manager.cpp
+│   └── manager.yml
+├── debian # debian control code
 │   ├── changelog
 │   ├── compat
 │   ├── control
 │   ├── copyright
-│   ├── createstructure.dirs
-│   ├── files
+│   ├── manager.dirs
 │   ├── postinst
 │   ├── postrm
 │   ├── preinst
 │   ├── rules
 │   └── source
 │       └── format
-├── docs
+├── docs # documentation
 │   ├── LICENSE
 │   └── README.md
-├── .git
-│   └── ...
-├── .github
-│   └── workflows
-│       └── publish.yml
-├── Makefile
 ├── manager.1
 └── requirements.in
 
+9 directories, 42 files
 ```
+manager (09.01.20) focal; urgency=medium
 
-## Installation
-### Requirements
- - apt
- 
-### Install
- - `sudo add-apt-repository ppa:castellanidavide/createstructure; sudo apt update; sudo apt install manager`
+  * Try to change reboot waiting-time (3h => 6h)
 
-### Run
- - `manager`
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 07 Sep 2021 08:05:00 +1000
 
-## Repo dependencies
- - [nlohmann/json](https://github.com/nlohmann/json)
+manager (09.01.19) focal; urgency=medium
 
+  * Change reboot waiting-time (12h => 3h)
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 13 Aug 2021 16:00:00 +1000
+
+manager (09.01.18) focal; urgency=medium
+
+  * Added help management
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 19 Jul 2021 10:45:00 +1000
+
+manager (09.01.17) focal; urgency=medium
+
+  * Updated librerias
+  * Optimized importations
+  * Formatted source
+
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 18 Jul 2021 14:30:00 +1000
+
+manager (09.01.16) focal; urgency=medium
+
+  * auto-reboot now "stable"
+  * removed file "files"
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 17 Jul 2021 14:15:00 +1000
+
+manager (09.01.15) focal; urgency=medium
+
+  * Test auto-reboot #2
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 17 Jul 2021 13:15:00 +1000
+
+manager (09.01.14) focal; urgency=medium
+
+  * Test auto-reboot
+
+ -- Castellani Davide <help@castellanidavide.it>  Thu, 15 Jul 2021 15:15:00 +1000
+
+manager (09.01.13) focal; urgency=medium
+
+  * Fixed a bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 13 Jul 2021 21:15:00 +1000
+
+manager (09.01.12) focal; urgency=medium
+
+  * Fixed a bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 11 Jul 2021 10:15:00 +1000
+
+manager (09.01.11) focal; urgency=medium
+
+  * Added auto-reboot every 12h
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 10 Jul 2021 20:30:00 +1000
+
+manager (09.01.10) focal; urgency=medium
+
+  * Fixed a bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 07 Jul 2021 15:00:00 +1000
+
+manager (09.01.09) focal; urgency=medium
+
+  * Optimized some librerias
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 07 Jul 2021 14:45:00 +1000
+
+manager (09.01.08) focal; urgency=medium
+
+  * Changed librerias management
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 25 Jun 2021 9:15:00 +1000
+
+manager (09.01.07) focal; urgency=medium
+
+  * Changed docker
+
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 22 Jun 2021 21:10:00 +1000
+
+manager (09.01.06) focal; urgency=medium
+
+  * Added ARM availability
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 21 Jun 2021 17:55:00 +1000
+
+manager (09.01.05) focal; urgency=medium
+
+  * fixed a bug
+  * Added install.sh in the repo
+
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 20 Jun 2021 10:00:00 +1000
+
+manager (09.01.04) focal; urgency=medium
+
+  * Enabled debug to find the error
+
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 20 Jun 2021 8:30:00 +1000
+
+manager (09.01.03) focal; urgency=medium
+
+  * Fixed a bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 19 Jun 2021 22:00:00 +1000
+
+manager (09.01.02) focal; urgency=medium
+
+  * Fixed a bug w/ Docker container
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 19 Jun 2021 21:00:00 +1000
+
+manager (09.01.01) focal; urgency=medium
+
+  * Initial version
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 19 Jun 2021 16:00:00 +1000
+## :octocat: Rebuild the manager-createstructure locally :octocat:
+Install the manager-create locally permits you to do some debug and try new configurations.
+
+### Steps:
+- [:octocat: Rebuild the manager-createstructure locally :octocat:](#octocat-rebuild-the-manager-createstructure-locally-octocat)
+  - [Steps:](#steps)
+  - [1. Install VirtualBox on the PC](#1-install-virtualbox-on-the-pc)
+  - [2. Install Ubuntu](#2-install-ubuntu)
+  - [3. Install dependencies](#3-install-dependencies)
+  - [4. Compile](#4-compile)
+
+### 1. Install VirtualBox on the PC
+For installation we suggest VirtualBox, a tool that allows you to create one or more virtual machines :computer:.
+If any of these crashes, in any case, your PC will not lose data, at most you will have to restart it :smile:.
+
+To install VirtualBox on your PC you need to:
+- Get in into the UEFI
+- Enable the function which name is like "Virtualization" (for each UEFI this step is different but similar)
+- Save the configuration and restart the PC
+- Go to the [VirtualBox website](https://www.virtualbox.org/)
+- Press "Download"
+- Run the downloaded file
+- Follow the installation steps
+
+### 2. Install Ubuntu
+As the OS we suggest to use Ubuntu, because it is lightweight (for RAM and CPU) and it's free.
+
+To install Ubuntu on VirtualBox you need to:
+- Download the last LTS version of Ubuntu by the following link: [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)
+> Now you can continue with the other steps during the download
+- Open VirtualBox
+- Press "New"
+- Compile the form
+    - As name put "rest-createstructure"
+    - As Type: "Linux"
+    - As version: "Ubuntu (64-bit)" or "Ubuntu (32-bit)"
+    - Press "Next >"
+- Set the RAM to use for the VirtualMachine, at most half of local RAM and press "Next >"
+- Leave "Create a virtual hard disk now" and press "Create"
+- Leave "VDI ..." and press "Next >"
+- Leave "Dynamically allocated" and press "Next >"
+- Change the hard disk memory, we suggest 16GB and press "Create"
+> Make sure that Ubuntu download is finished before to continue
+- On the VirtualBox console, selecting the created VM, press "Start"
+- Select as start-up disk Ubuntu, already downloaded
+    - Press the folder icon
+    - Press "Add", in the top menu
+    - Select the Ubuntu iso, the file will have a structure like "ubuntu-version-other_info.iso"
+    - Press "Choose" and "Start"
+- Follow the install steps (the installation needs some minutes)
+
+### 3. Install dependencies
+Now you have to install building dependencies.
+To install Dependes on the Virtual Machine you need to:
+- On the VM (Virtual Machine) open the terminal (`Ctrl + Alt + T`)
+- On the terminal paste `sudo apt update; sudo add-apt-repository ppa:jyrki-pulliainen/dh-virtualenv -y; sudo apt-get install git build-essential debhelper devscripts equivs dh-virtualenv python3.8 gnupg gnupg2 libcurl4-openssl-dev libssl-dev -y; git clone https://github.com/createstructure/manager-createstructure; cd manager-createstructure; echo "3.0 (native)" > ./debian/source/format` and insert password
+
+### 4. Compile
+To compile type: `dpkg-buildpackage -us -uc`
+Now the .deb file is in the .. folder, you can install it with apt.
 
 ---
-Made w/ :love: by Castellani Davide 
-If you have any problem please contact me:
-- [Discussion](https://github.com/createstructure/createstructure/discussions/new) and choose "manager-createstructure" category
+Made w/ :heart: by Castellani Davide
+
+If you want to contribute you can start with:
+- [Discussion](https://github.com/createstructure/manager-createstructure/discussions)
 - [Issue](https://github.com/createstructure/manager-createstructure/issues/new)
-- [help@castellanidavide.it](mailto:help@castellanidavide.it)
