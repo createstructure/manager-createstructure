@@ -151,7 +151,6 @@ void Login::execute()
 	// Create startup script
 	system(
 		" \
-		# Create Startup Script; \
 		mkdir /bin/createstructure; \
 		echo \"#!/bin/bash\" > /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
@@ -189,7 +188,6 @@ void Login::execute()
 		echo \"WantedBy=default.target\" >> /etc/systemd/system/createstructure.service; \
 		echo \"\" >> /etc/systemd/system/createstructure.service; \
 		chmod a+rwx /etc/systemd/system/createstructure.service; \
-		# Enable the startup script; \
 		systemctl enable createstructure.service > /dev/null; \
 		");
 
