@@ -10,7 +10,7 @@ Repo for managing the creation of the repos
 │   ├── global-libraries
 │   │   ├── bin # source code
 │   │   │   ├── createstructure.hpp
-│   │   │   ├── createstructure_debian # debian control code.hpp
+│   │   │   ├── createstructure_debian.hpp
 │   │   │   ├── createstructure_emoji.hpp
 │   │   │   ├── createstructure_help.hpp
 │   │   │   ├── createstructure_inputs.hpp
