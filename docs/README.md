@@ -9,19 +9,11 @@ Repo for managing the creation of the repos
 ├── bin # source code
 │   ├── global-libraries
 │   │   ├── bin # source code
-│   │   │   ├── createstructure.hpp
-│   │   │   ├── createstructure_debian.hpp
-│   │   │   ├── createstructure_emoji.hpp
-│   │   │   ├── createstructure_help.hpp
-│   │   │   ├── createstructure_inputs.hpp
-│   │   │   ├── createstructure_login.hpp
-│   │   │   ├── createstructure_memory.hpp
-│   │   │   ├── createstructure_positive.hpp
-│   │   │   ├── createstructure_setting.hpp
-│   │   │   ├── createstructure_split.hpp
 │   │   │   ├── cryptation.hpp
+│   │   │   ├── emoji.hpp
 │   │   │   ├── inputs.hpp
 │   │   │   ├── json.hpp
+│   │   │   ├── positive.hpp
 │   │   │   ├── rest.hpp
 │   │   │   └── sleep.hpp
 │   │   ├── docs # documentation
@@ -57,7 +49,7 @@ Repo for managing the creation of the repos
 ├── manager.1
 └── requirements.in
 
-9 directories, 42 files
+9 directories, 34 files
 ```
 manager (09.01.20) focal; urgency=medium
 
