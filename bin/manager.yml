@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: manager
+  labels:
+    app: manager
+spec:
+  replicas: 1 # Number of replicas
+  selector:
+    matchLabels:
+      app: core
+  template:
+    metadata:
+      name: core
+      labels:
+        app: core
+    spec:
+      containers:
+      - name: core
+        image: ghcr.io/createstructure/core-createstructure:beta
+        imagePullPolicy: "Always"
+        volumeMounts:
+        - name: auth
+          readOnly: true
+          mountPath: "/etc/auth"
+      imagePullSecrets:
+      - name: docker # Secret with Docker config
+      volumes:
+      - name: auth
+        secret:
+          secretName: auth
