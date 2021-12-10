@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/f8b1e6a4bf6f1ae5a3163965f4f498a106712904edcaae432b2cb8f1ef1d79d9/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/a4c2b9b39c5659aa5367641677b99eb94936642f3eced3900126ae028ea58a88/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -52,6 +52,18 @@ Repo for managing the creation of the repos
 
 8 directories, 31 files
 ```
+manager (10.01.01) focal; urgency=medium
+
+  * [v10-beta (manager-createstructure + core-createstructure)](https://github.com/createstructure/manager-createstructure/issues/2)
+    * [Create a Docker management system](https://github.com/createstructure/manager-createstructure/issues/3)
+    * [Create service for the new REST API](https://github.com/createstructure/manager-createstructure/issues/4)
+    * [Create a routine to automate the Docker container management](https://github.com/createstructure/manager-createstructure/issues/5)
+    * [Include install.sh in the manager-createstructure debian package](https://github.com/createstructure/manager-createstructure/issues/1)
+    * [Convert functions into classes in all libraries](https://github.com/createstructure/manager-createstructure/issues/6)
+    * [Improve documentation](https://github.com/createstructure/manager-createstructure/issues/7)
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 10 Dec 2021 21:15:00 +1000
+
 manager (09.01.20) focal; urgency=medium
 
   * Try to change reboot waiting-time (3h => 6h)
