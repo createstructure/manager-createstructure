@@ -1,12 +1,11 @@
 manager (10.01.01) focal; urgency=medium
 
-  * [v10-beta (manager-createstructure + core-createstructure)](https://github.com/createstructure/manager-createstructure/issues/2)
-    * [Create a Docker management system](https://github.com/createstructure/manager-createstructure/issues/3)
-    * [Create service for the new REST API](https://github.com/createstructure/manager-createstructure/issues/4)
-    * [Create a routine to automate the Docker container management](https://github.com/createstructure/manager-createstructure/issues/5)
-    * [Include install.sh in the manager-createstructure debian package](https://github.com/createstructure/manager-createstructure/issues/1)
-    * [Convert functions into classes in all libraries](https://github.com/createstructure/manager-createstructure/issues/6)
-    * [Improve documentation](https://github.com/createstructure/manager-createstructure/issues/7)
+  * [Create a Docker management system](https://github.com/createstructure/manager-createstructure/issues/3)
+  * [Create service for the new REST API](https://github.com/createstructure/manager-createstructure/issues/4)
+  * [Create a routine to automate the Docker container management](https://github.com/createstructure/manager-createstructure/issues/5)
+  * [Include install.sh in the manager-createstructure debian package](https://github.com/createstructure/manager-createstructure/issues/1)
+  * [Convert functions into classes in all libraries](https://github.com/createstructure/manager-createstructure/issues/6)
+  * [Improve documentation](https://github.com/createstructure/manager-createstructure/issues/7)
 
  -- Castellani Davide <help@castellanidavide.it>  Fri, 10 Dec 2021 21:15:00 +1000
 
