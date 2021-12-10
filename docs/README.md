@@ -1,7 +1,12 @@
-## :octocat: Description :octocat:
+# manager-createstructure
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/manager-createstructure/blob/v10-beta/docs/LICENSE)
+![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
+![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
+
+##  Description 
 Repo for managing the creation of the repos
 ![createstructure/manager-createstructure](https://opengraph.githubassets.com/5b8f42991e48d1ad0f54a18e131b5af3a7bebd750d1924e17639d072d69b7fc5/createstructure/manager-createstructure)
-## :octocat: Directory structure :octocat:
+##  Directory structure 
 
 ```
 ../repo
@@ -16,14 +21,10 @@ Repo for managing the creation of the repos
 │   │   │   ├── positive.hpp
 │   │   │   ├── rest.hpp
 │   │   │   └── sleep.hpp
-│   │   ├── docs # documentation
-│   │   │   ├── CHANGELOG.md
-│   │   │   ├── LICENSE
-│   │   │   ├── README.md
-│   │   │   └── dependeces.svg
-│   │   └── workflows
-│   │       ├── push.yml
-│   │       └── release.yml
+│   │   └── docs # documentation
+│   │       ├── CHANGELOG.md
+│   │       ├── LICENSE
+│   │       └── README.md
 │   ├── local-libreries
 │   │   ├── help.hpp
 │   │   ├── login.hpp
@@ -49,7 +50,7 @@ Repo for managing the creation of the repos
 ├── manager.1
 └── requirements.in
 
-9 directories, 34 files
+8 directories, 31 files
 ```
 manager (09.01.20) focal; urgency=medium
 
@@ -174,11 +175,11 @@ manager (09.01.01) focal; urgency=medium
   * Initial version
 
  -- Castellani Davide <help@castellanidavide.it>  Sat, 19 Jun 2021 16:00:00 +1000
-## :octocat: Rebuild the manager-createstructure locally :octocat:
+##  Rebuild the manager-createstructure locally 
 Install the manager-create locally permits you to do some debug and try new configurations.
 
 ### Steps:
-- [:octocat: Rebuild the manager-createstructure locally :octocat:](#octocat-rebuild-the-manager-createstructure-locally-octocat)
+- [ Rebuild the manager-createstructure locally ](#octocat-rebuild-the-manager-createstructure-locally-octocat)
   - [Steps:](#steps)
   - [1. Install VirtualBox on the PC](#1-install-virtualbox-on-the-pc)
   - [2. Install Ubuntu](#2-install-ubuntu)
