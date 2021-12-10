@@ -7,7 +7,7 @@ manager (10.01.01) focal; urgency=medium
   * [Convert functions into classes in all libraries](https://github.com/createstructure/manager-createstructure/issues/6)
   * [Improve documentation](https://github.com/createstructure/manager-createstructure/issues/7)
 
- -- Castellani Davide <help@castellanidavide.it>  Fri, 10 Dec 2021 21:15:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 10 Dec 2021 22:00:00 +1000
 
 manager (09.01.20) focal; urgency=medium
 
