@@ -1,11 +1,11 @@
 # manager-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/manager-createstructure/blob/v10-beta/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/manager-createstructure/blob/main/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/5b8f42991e48d1ad0f54a18e131b5af3a7bebd750d1924e17639d072d69b7fc5/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/f8b1e6a4bf6f1ae5a3163965f4f498a106712904edcaae432b2cb8f1ef1d79d9/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
