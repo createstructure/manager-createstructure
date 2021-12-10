@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/cbbe06ccb63b1fb938e04b4e0600d35db92ef6ee3c349eec6923e2b3b74e897a/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/94cc6ee93c7cbe1bff4c5fd6382af41959962ad7c4fb496be6dc32e119035407/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
