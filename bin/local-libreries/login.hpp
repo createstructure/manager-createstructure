@@ -242,7 +242,8 @@ void Login::execute()
 	cout << "Replicas: " << replicas << endl;
 #endif // DEBUG
 
-	string config = "apiVersion: apps/v1" + "\n" +
+	string config = string("") +
+					"apiVersion: apps/v1" + "\n" +
 					"kind: ReplicaSet" + "\n" +
 					"metadata:" + "\n" +
 					"  name: manager" + "\n" +
