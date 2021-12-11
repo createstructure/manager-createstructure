@@ -21,7 +21,7 @@
 using namespace std;
 
 // Definitions
-#define DEBUG
+// #define DEBUG
 
 // Classes prototipe(s)
 class Login
@@ -163,7 +163,7 @@ void Login::execute()
 		echo \"fi\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
 		echo \"# Start minikube\" >> /bin/createstructure/manager.sh; \
-		echo \"sudo -u nobody minikube start\" >> /bin/createstructure/manager.sh; \
+		echo \"sudo -u $(logname) minikube start\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
 		chmod a+x /bin/createstructure/manager.sh; \
 		");
@@ -242,8 +242,42 @@ void Login::execute()
 	cout << "Replicas: " << replicas << endl;
 #endif // DEBUG
 
-	string config = Rest::textRequest(
-		"https://gist.githubusercontent.com/DavideC03/5143f95c3d553f3aa36ae99699b66bb5/raw/tmp.yml");
+	string config = "apiVersion: apps/v1" + "\n" +
+					"kind: ReplicaSet" + "\n" +
+					"metadata:" + "\n" +
+					"  name: manager" + "\n" +
+					"  labels:" + "\n" +
+					"    app: manager" + "\n" +
+					"spec:" + "\n" +
+					"  replicas: 1 # Number of replicas" + "\n" +
+					"  selector:" + "\n" +
+					"    matchLabels:" + "\n" +
+					"      app: core" + "\n" +
+					"  template:" + "\n" +
+					"    metadata:" + "\n" +
+					"      name: core" + "\n" +
+					"      labels:" + "\n" +
+					"        app: core" + "\n" +
+					"    spec:" + "\n" +
+					"      containers:" + "\n" +
+					"      - name: core" + "\n" +
+					"        image: ghcr.io/createstructure/core-createstructure:" +
+#ifdef DEBUG
+						"beta" + "\n" +
+#else // DEBUG
+						"latest" + "\n" +
+#endif // DEBUG
+					"        imagePullPolicy: \"Always\"" + "\n" +
+					"        volumeMounts:" + "\n" +
+					"        - name: auth" + "\n" +
+					"          readOnly: true" + "\n" +
+					"          mountPath: \"/etc/auth\"" + "\n" +
+					"      imagePullSecrets:" + "\n" +
+					"      - name: docker # Secret with Docker config" + "\n" +
+					"      volumes:" + "\n" +
+					"      - name: auth" + "\n" +
+					"        secret:" + "\n" +
+					"          secretName: auth";
 
 	config.replace(config.find(toReplace), toReplace.length(), to_string(replicas));
 

@@ -1,3 +1,9 @@
+manager (10.01.02) focal; urgency=medium
+
+  * [beta => latest](https://github.com/createstructure/manager-createstructure/issues/9)
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 11 Dec 2021 23:15:00 +1000
+
 manager (10.01.01) focal; urgency=medium
 
   * [Create a Docker management system](https://github.com/createstructure/manager-createstructure/issues/3)
