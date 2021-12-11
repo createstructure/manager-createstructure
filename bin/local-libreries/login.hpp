@@ -156,14 +156,14 @@ void Login::execute()
 		echo \"cd /bin/createstructure\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
 		echo \"# Make to have the correcth rights\" >> /bin/createstructure/manager.sh; \
-		echo \"if [[ $UID != 0 ]]; then\" >> /bin/createstructure/manager.sh; \
+		echo \"if [[ \$UID != 0 ]]; then\" >> /bin/createstructure/manager.sh; \
 		echo \"    echo \\\"Please run this script with sudo:\\\"\" >> /bin/createstructure/manager.sh; \
-		echo \"    echo \\\"$0 $* ...\\\"\" >> /bin/createstructure/manager.sh; \
+		echo \"    echo \\\"\$0 \$* ...\\\"\" >> /bin/createstructure/manager.sh; \
 		echo \"    exit 1\" >> /bin/createstructure/manager.sh; \
 		echo \"fi\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
-		echo \"# Start kind\" >> /bin/createstructure/manager.sh; \
-		echo \"sudo -u nobody kind create cluster\" >> /bin/createstructure/manager.sh; \
+		echo \"# Start minikube\" >> /bin/createstructure/manager.sh; \
+		echo \"sudo -u nobody minikube start\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
 		chmod a+x /bin/createstructure/manager.sh; \
 		");
