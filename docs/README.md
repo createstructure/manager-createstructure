@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/eddb73549e86e9da750f3ed33e40e5ce84bbdff31b2db77821d84e6a40bbde2f/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/df75cb80a35dc3c06c2259ad1b64f4d508e3ddabdecd47e27731572eac1cc005/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -52,6 +52,12 @@ Repo for managing the creation of the repos
 
 8 directories, 31 files
 ```
+manager (10.01.02) focal; urgency=medium
+
+  * [beta => latest](https://github.com/createstructure/manager-createstructure/issues/9)
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 11 Dec 2021 23:15:00 +1000
+
 manager (10.01.01) focal; urgency=medium
 
   * [Create a Docker management system](https://github.com/createstructure/manager-createstructure/issues/3)
