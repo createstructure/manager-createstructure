@@ -156,9 +156,9 @@ void Login::execute()
 		echo \"cd /bin/createstructure\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
 		echo \"# Make to have the correcth rights\" >> /bin/createstructure/manager.sh; \
-		echo \"if [[ \$UID != 0 ]]; then\" >> /bin/createstructure/manager.sh; \
+		echo \"if [[ \\\$UID != 0 ]]; then\" >> /bin/createstructure/manager.sh; \
 		echo \"    echo \\\"Please run this script with sudo:\\\"\" >> /bin/createstructure/manager.sh; \
-		echo \"    echo \\\"\$0 \$* ...\\\"\" >> /bin/createstructure/manager.sh; \
+		echo \"    echo \\\"\\\$0 \\\$* ...\\\"\" >> /bin/createstructure/manager.sh; \
 		echo \"    exit 1\" >> /bin/createstructure/manager.sh; \
 		echo \"fi\" >> /bin/createstructure/manager.sh; \
 		echo \"\" >> /bin/createstructure/manager.sh; \
@@ -198,13 +198,11 @@ void Login::execute()
 	system("openssl genrsa -out /tmp/private.pem 4096 > /dev/null && chmod +rwx /tmp/private.pem");
 	system("openssl rsa -in /tmp/private.pem -outform PEM -pubout -out /tmp/public.pem > /dev/null && chmod +rwx /tmp/public.pem");
 
-#ifdef DEBUG
 	// Print key pair
 	cout << "Private key: " << endl;
 	system("cat /tmp/private.pem");
 	cout << "Public key: " << endl;
 	system("cat /tmp/public.pem");
-#endif // DEBUG
 
 	cout << "Press any key to continue" << endl;
 	cin.get();
@@ -214,7 +212,7 @@ void Login::execute()
 	system("sudo -u $(logname) kubectl delete secret docker --ignore-not-found"); // Delete secret if already exists
 	system((
 			   string("") +
-			   "sudo -u $(logname) kubectl create secret generic auth " +
+			    "sudo -u $(logname) kubectl create secret generic auth " +
 			   "--from-literal=server_name=\"" + Login::info["server-name"] + "\" " +
 			   "--from-literal=server_password=\"" + Login::info["server-password"] + "\" " +
 			   "--from-file=server_gpg_key=/tmp/private.pem")
