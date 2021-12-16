@@ -1,3 +1,10 @@
+manager (10.01.03) focal; urgency=medium
+
+  * [Fix installation on ARM archittecture](https://github.com/createstructure/manager-createstructure/issues/10)
+  * [Fix minikube startup](https://github.com/createstructure/manager-createstructure/issues/11)
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 16 Dec 2021 12:10:00 +1000
+
 manager (10.01.02) focal; urgency=medium
 
   * [beta => latest](https://github.com/createstructure/manager-createstructure/issues/9)

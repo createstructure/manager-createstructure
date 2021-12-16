@@ -111,7 +111,7 @@ void Login::execute()
 		" \
 		minikube version > /dev/null || { \
 			curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg --print-architecture); \
-			sudo install minikube-linux-amd64 /usr/local/bin/minikube; \
+			sudo install minikube-linux-$(dpkg --print-architecture) /usr/local/bin/minikube; \
 		} \
 		");
 
@@ -147,40 +147,18 @@ void Login::execute()
 	cout << "ssh keys imported" << endl;
 #endif // DEBUG
 
-	// Create startup script
-	system(
-		" \
-		mkdir /bin/createstructure; \
-		echo \"#!/bin/bash\" > /bin/createstructure/manager.sh; \
-		echo \"\" >> /bin/createstructure/manager.sh; \
-		echo \"cd /bin/createstructure\" >> /bin/createstructure/manager.sh; \
-		echo \"\" >> /bin/createstructure/manager.sh; \
-		echo \"# Make to have the correcth rights\" >> /bin/createstructure/manager.sh; \
-		echo \"if [[ \\\$UID != 0 ]]; then\" >> /bin/createstructure/manager.sh; \
-		echo \"    echo \\\"Please run this script with sudo:\\\"\" >> /bin/createstructure/manager.sh; \
-		echo \"    echo \\\"\\\$0 \\\$* ...\\\"\" >> /bin/createstructure/manager.sh; \
-		echo \"    exit 1\" >> /bin/createstructure/manager.sh; \
-		echo \"fi\" >> /bin/createstructure/manager.sh; \
-		echo \"\" >> /bin/createstructure/manager.sh; \
-		echo \"# Start minikube\" >> /bin/createstructure/manager.sh; \
-		echo \"sudo -u $(logname) minikube start\" >> /bin/createstructure/manager.sh; \
-		echo \"\" >> /bin/createstructure/manager.sh; \
-		chmod a+x /bin/createstructure/manager.sh; \
-		");
-
-#ifdef DEBUG
-	cout << "Startup script created" << endl;
-#endif // DEBUG
-
 	// Create the stratup service
 	system(
 		" \
 		echo \"[Unit]\" > /etc/systemd/system/createstructure.service; \
-		echo \"Description=manager-reatestructure\" >> /etc/systemd/system/createstructure.service; \
+		echo \"Description=Start minikube\" >> /etc/systemd/system/createstructure.service; \
 		echo \"After=network.service\" >> /etc/systemd/system/createstructure.service; \
 		echo \"\" >> /etc/systemd/system/createstructure.service; \
 		echo \"[Service]\" >> /etc/systemd/system/createstructure.service; \
-		echo \"ExecStart=/bin/createstructure/manager.sh\" >> /etc/systemd/system/createstructure.service; \
+		echo \"ExecStart=/usr/local/bin/minikube start\" >> /etc/systemd/system/createstructure.service; \
+		echo \"Type=oneshot\" >> /etc/systemd/system/createstructure.service; \
+		echo \"RemainAfterExit=yes\" >> /etc/systemd/system/createstructure.service; \
+		echo \"User=$(logname)\" >> /etc/systemd/system/createstructure.service; \
 		echo \"TimeoutSec=0\" >> /etc/systemd/system/createstructure.service; \
 		echo \"\" >> /etc/systemd/system/createstructure.service; \
 		echo \"[Install]\" >> /etc/systemd/system/createstructure.service; \
