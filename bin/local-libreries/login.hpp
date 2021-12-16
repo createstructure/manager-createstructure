@@ -112,6 +112,7 @@ void Login::execute()
 		minikube version > /dev/null || { \
 			curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg --print-architecture); \
 			sudo install minikube-linux-$(dpkg --print-architecture) /usr/local/bin/minikube; \
+			rm minikube-linux-$(dpkg --print-architecture); \
 		} \
 		");
 
@@ -155,7 +156,7 @@ void Login::execute()
 		echo \"After=network.service\" >> /etc/systemd/system/createstructure.service; \
 		echo \"\" >> /etc/systemd/system/createstructure.service; \
 		echo \"[Service]\" >> /etc/systemd/system/createstructure.service; \
-		echo \"ExecStart=/usr/local/bin/minikube start\" >> /etc/systemd/system/createstructure.service; \
+		echo \"ExecStart=minikube start\" >> /etc/systemd/system/createstructure.service; \
 		echo \"Type=oneshot\" >> /etc/systemd/system/createstructure.service; \
 		echo \"RemainAfterExit=yes\" >> /etc/systemd/system/createstructure.service; \
 		echo \"User=$(logname)\" >> /etc/systemd/system/createstructure.service; \

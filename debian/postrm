@@ -1,10 +1,2 @@
 #!/bin/bash
-
-# Disable the startup script
-systemctl disable createstructure.service > /dev/null
-
-# Remove the startup script(s)
-rm /bin/createstructure/manager.sh
-rm /etc/systemd/system/createstructure.service
-
 echo "Removed"
