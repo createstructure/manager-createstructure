@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/be872d81acdc84fef25ea952e281c92f58011e1846ad4f80b12531a6c552229c/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/c968adf2af00ac2530ac8e45a67e3b95a4a0b3edd43012158e95707f1bbefe50/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -52,6 +52,13 @@ Repo for managing the creation of the repos
 
 8 directories, 31 files
 ```
+manager (10.01.03) focal; urgency=medium
+
+  * [Fix installation on ARM archittecture](https://github.com/createstructure/manager-createstructure/issues/10)
+  * [Fix minikube startup](https://github.com/createstructure/manager-createstructure/issues/11)
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 16 Dec 2021 12:10:00 +1000
+
 manager (10.01.02) focal; urgency=medium
 
   * [beta => latest](https://github.com/createstructure/manager-createstructure/issues/9)
