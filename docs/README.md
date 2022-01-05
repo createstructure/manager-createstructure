@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/086b85e7666df727c39356326ce8e22099169e909ce2d8ab8b56d85b1f8ace9a/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/9ee759ce22abcdf96e8e25dc294bc96221a11239c38a58625a518e680a707ece/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -52,6 +52,12 @@ Repo for managing the creation of the repos
 
 8 directories, 31 files
 ```
+manager (10.01.04) focal; urgency=medium
+
+  * [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
+
+ -- Castellani Davide <help@castellanidavide.it>  Wed, 5 Jan 2020 14:00:00 +1000
+
 manager (10.01.03) focal; urgency=medium
 
   * [Fix installation on ARM archittecture](https://github.com/createstructure/manager-createstructure/issues/10)
