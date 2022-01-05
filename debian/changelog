@@ -1,3 +1,9 @@
+manager (10.01.04) focal; urgency=medium
+
+  * [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
+
+ -- Castellani Davide <help@castellanidavide.it>  Wed, 5 Jan 2020 14:00:00 +1000
+
 manager (10.01.03) focal; urgency=medium
 
   * [Fix installation on ARM archittecture](https://github.com/createstructure/manager-createstructure/issues/10)
