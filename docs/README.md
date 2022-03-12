@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/9ee759ce22abcdf96e8e25dc294bc96221a11239c38a58625a518e680a707ece/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/16cd278fc8b98db91de36ae56485fb8b5011db0208b85a9be918e64a7489fe6d/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -24,7 +24,9 @@ Repo for managing the creation of the repos
 │   │   └── docs # documentation
 │   │       ├── CHANGELOG.md
 │   │       ├── LICENSE
-│   │       └── README.md
+│   │       ├── README.md
+│   │       ├── libraries-createstructure-Class-UML.svg
+│   │       └── libraries-createstructure.drawio
 │   ├── local-libreries
 │   │   ├── help.hpp
 │   │   ├── login.hpp
@@ -50,7 +52,7 @@ Repo for managing the creation of the repos
 ├── manager.1
 └── requirements.in
 
-8 directories, 31 files
+8 directories, 33 files
 ```
 manager (10.01.04) focal; urgency=medium
 
