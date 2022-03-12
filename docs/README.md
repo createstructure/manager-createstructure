@@ -49,11 +49,12 @@ Repo for managing the creation of the repos
 ├── docs # documentation
 │   ├── LICENSE
 │   ├── README.md
+│   ├── manager-createstructure-Class-UML.svg
 │   └── manager-createstructure.drawio
 ├── manager.1
 └── requirements.in
 
-8 directories, 32 files
+8 directories, 33 files
 ```
 manager (10.01.04) focal; urgency=medium
 
