@@ -56,11 +56,17 @@ Repo for managing the creation of the repos
 
 8 directories, 33 files
 ```
+manager (10.01.05) focal; urgency=medium
+
+  * [Added charts automation](https://github.com/createstructure/manager-createstructure/issues/12)
+
+ -- Castellani Davide <help@castellanidavide.it>  Sat, 12 Mar 2022 19:00:00 +1000
+
 manager (10.01.04) focal; urgency=medium
 
   * [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
 
- -- Castellani Davide <help@castellanidavide.it>  Wed, 5 Jan 2020 14:00:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Wed, 5 Jan 2022 14:00:00 +1000
 
 manager (10.01.03) focal; urgency=medium
 
