@@ -1,11 +1,11 @@
 # manager-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/manager-createstructure/blob/main/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/manager-createstructure/blob/UML-beta/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/9ee759ce22abcdf96e8e25dc294bc96221a11239c38a58625a518e680a707ece/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/16cd278fc8b98db91de36ae56485fb8b5011db0208b85a9be918e64a7489fe6d/createstructure/manager-createstructure)
 ##  Directory structure 
 
 ```
@@ -46,11 +46,12 @@ Repo for managing the creation of the repos
 │       └── format
 ├── docs # documentation
 │   ├── LICENSE
-│   └── README.md
+│   ├── README.md
+│   └── manager-createstructure.drawio
 ├── manager.1
 └── requirements.in
 
-8 directories, 31 files
+8 directories, 32 files
 ```
 manager (10.01.04) focal; urgency=medium
 
