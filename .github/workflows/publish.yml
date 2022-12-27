@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: deb
+    strategy:
+        matrix:
+          distribution: ["jammy", "focal"]
 
     steps:
     - uses: actions/checkout@v2
@@ -21,6 +24,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install build-essential debhelper devscripts equivs gnupg gnupg2 libcurl4-openssl-dev libssl-dev -y
 
+    - name: Replace distribution
+      run: |
+        sed -i 's/distribution/${{ matrix.distribution }}/g' ./debian/changelog
+        cat ./debian/changelog
+        
     - uses: oprypin/find-latest-tag@v1
       with:
         repository: createstructure/manager-createstructure
@@ -74,6 +82,7 @@ jobs:
     - name: Replace distribution
       run: |
         sed -i 's/distribution/${{ matrix.distribution }}/g' ./debian/changelog
+        cat ./debian/changelog
 
     - uses: oprypin/find-latest-tag@v1
       with:
