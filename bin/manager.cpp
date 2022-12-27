@@ -18,19 +18,14 @@ int main(int argc, char *argv[])
 	if (inputs.exist("--help"))
 	{
 		Help::execute(inputs);
-		return 0;
-	}
-
-	if (inputs.exist("--version"))
+	} 
+	else if (inputs.exist("--version"))
 	{
 		Version::execute(inputs);
-		return 0;
 	}
-
-	if (inputs.exist("--login"))
+	else if (inputs.exist("--login"))
 	{
 		Login::execute(inputs);
-		return 0;
 	}
 
 	return 0;

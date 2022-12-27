@@ -11,14 +11,10 @@
 #define HELP
 
 // Dependencies
-#include <bits/stdc++.h>
 #include "../global-libraries/bin/inputs.hpp"
 
 // using ...
 using namespace std;
-
-// Definitions
-// #define DEBUG
 
 // Classes prototipe(s)
 class Help
@@ -34,35 +30,4 @@ public:
 	static void execute(Inputs inputs);
 };
 
-// Function(s)
-Help::Help(Inputs inputs)
-{
-	/**
-	 * Constructor
-	 * 
-	 * @param inputs Inputs object
-	 */
-	Help::inputs = inputs;
-}
-
-void Help::execute()
-{
-	/**
-	 * Execute
-	 */
-	system("man manager"); // Open the package manual
-}
-
-void Help::execute(Inputs inputs)
-{
-	/**
-	 * Execute
-	 * 
-	 * @param inputs Inputs object
-	 */
-	Help Help(inputs);
-	Help.execute();
-}
-
-#undef DEBUG
 #endif

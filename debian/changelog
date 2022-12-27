@@ -1,3 +1,9 @@
+manager (10.01.08~distribution) distribution; urgency=medium
+
+  * [Split .hpp files into modules (.hpp and .cpp)](https://github.com/createstructure/manager-createstructure/issues/16)
+
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 27 Dec 2022 22:00:00 +1000
+
 manager (10.01.07~distribution) distribution; urgency=medium
 
   * [Ubuntu 22.04](https://github.com/createstructure/manager-createstructure/issues/15)
