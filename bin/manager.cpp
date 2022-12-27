@@ -1,9 +1,9 @@
 // Dependencies
 #include <bits/stdc++.h>
 #include "global-libraries/bin/inputs.hpp"
-#include "local-libreries/help.hpp"
-#include "local-libreries/version.hpp"
-#include "local-libreries/login.hpp"
+#include "local-libraries/help.hpp"
+#include "local-libraries/version.hpp"
+#include "local-libraries/login.hpp"
 
 // using ...
 using namespace std;
