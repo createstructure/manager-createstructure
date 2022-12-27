@@ -106,21 +106,10 @@ jobs:
         cp repo/.github/workflows/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
     - name: _Footer file
       run: |
-        cd wiki
-        echo "---" > _Footer.md
-        echo "Made w/ :heart: by Castellani Davide" >> _Footer.md
-        echo "" >> _Footer.md
-        echo "If you want to contribute you can start with:" >> _Footer.md
-        echo "- [Discussion]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/discussions)" >> _Footer.md
-        echo "- [Issue]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/issues/new)" >> _Footer.md
+        cp repo/.github/workflows/.templates/_Footer.md wiki/_Footer.md
     - name: _Header file
       run: |
-        cd wiki
-        echo "# manager-createstructure" > _Header.md
-        echo "[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$(echo ${GITHUB_REF#refs/heads/})/docs/LICENSE)" >> _Header.md
-        echo "![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)" >> _Header.md
-        echo "![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) " >> _Header.md
-        echo "" >> _Header.md
+        cp repo/.github/workflows/.templates/_Header.md wiki/_Header.md
     - name: Recreate README.md
       run: |
         cat wiki/_Header.md > repo/docs/README.md
