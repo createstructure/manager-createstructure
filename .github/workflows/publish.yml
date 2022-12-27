@@ -91,7 +91,7 @@ jobs:
     - name: Set envirorment varible(s)
       run: |
         echo "::set-output name=TAR_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')~${{ matrix.distribution }}.orig.tar.gz"
-        echo "::set-output name=CHANGES_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
+        echo "::set-output name=CHANGES_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')~${{ matrix.distribution }}_source.changes"
       id: envirorment-variables
 
     - name: gpg import 
