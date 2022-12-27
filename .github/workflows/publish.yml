@@ -11,7 +11,7 @@ jobs:
       name: deb
     strategy:
         matrix:
-          distribution: ["jammy", "focal", "bullseye", "buster", "stable"]
+          distribution: ["jammy", "focal"]
 
     steps:
     - uses: actions/checkout@v2
@@ -64,7 +64,7 @@ jobs:
       url: https://launchpad.net/~castellanidavide/+archive/ubuntu/createstructure
     strategy:
         matrix:
-          distribution: ["jammy", "focal", "bullseye", "buster", "stable"]
+          distribution: ["jammy", "focal"]
 
     steps:
     - uses: actions/checkout@v2

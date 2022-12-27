@@ -1,8 +1,8 @@
-manager (10.01.06~distribution) distribution; urgency=medium
+manager (10.01.07~distribution) distribution; urgency=medium
 
   * [Ubuntu 22.04](https://github.com/createstructure/manager-createstructure/issues/15)
 
- -- Castellani Davide <help@castellanidavide.it>  Tue, 27 Dec 2022 15:30:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 27 Dec 2022 17:00:00 +1000
 
 manager (10.01.06) distribution; urgency=medium
 
