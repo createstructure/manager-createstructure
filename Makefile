@@ -6,7 +6,7 @@ all:
 		./bin/local-libreries/login.cpp \
 		./bin/local-libreries/memory.cpp \
 		./bin/local-libreries/version.cpp \
-		./bin/global-libreries/input.cpp \
+		./bin/global-libreries/bin/input.cpp \
 		-o manager -lcurl
 
 install:
@@ -15,7 +15,7 @@ install:
 		./bin/local-libreries/login.cpp \
 		./bin/local-libreries/memory.cpp \
 		./bin/local-libreries/version.cpp \
-		./bin/global-libreries/input.cpp \
+		./bin/global-libreries/bin/input.cpp \
 		-o manager -lcurl
 	echo "DESTDIR: $(DESTDIR)"
 	echo "prefix: $(prefix)"
