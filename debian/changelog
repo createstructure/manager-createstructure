@@ -1,4 +1,4 @@
-manager (10.01.08~distribution) distribution; urgency=medium
+manager (10.01.09~distribution) distribution; urgency=medium
 
   * [Split .hpp files into modules (.hpp and .cpp)](https://github.com/createstructure/manager-createstructure/issues/16)
 
