@@ -37,10 +37,8 @@ jobs:
 
     - name: Set envirorment varible(s)
       run: |
-        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/manager-createstructure/releases/latest | jq -r '.upload_url')"  
-        echo "::set-output name=VERSION_TAG::$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')"
-        echo "::set-output name=DEB_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_amd64.deb"
-        echo "::set-output name=CHANGES_FILE::cmanager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
+        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/manager-createstructure/releases/latest | jq -r '.upload_url')"
+        echo "::set-output name=DEB_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')~${{ matrix.distribution }}_amd64.deb"
       id: envirorment-variables
 
     - name: Create .deb file
@@ -92,9 +90,7 @@ jobs:
 
     - name: Set envirorment varible(s)
       run: |
-        echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/manager-createstructure/releases/latest | jq -r '.upload_url')"  
-        echo "::set-output name=VERSION_TAG::$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')"
-        echo "::set-output name=TAR_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//').orig.tar.gz"
+        echo "::set-output name=TAR_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')~${{ matrix.distribution }}.orig.tar.gz"
         echo "::set-output name=CHANGES_FILE::manager_$(echo ${{ steps.latest.outputs.tag }} | sed 's/v//')_source.changes"
       id: envirorment-variables
 
