@@ -103,7 +103,7 @@ jobs:
         sed -i 's/docs/docs # documentation/g' Directory-Structure.md
     - name: Rebuild the manager-createstructure locally
       run: |
-        cp repo/.gihtub/workflows/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
+        cp repo/.github/workflows/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
     - name: _Footer file
       run: |
         cd wiki
