@@ -56,6 +56,9 @@ jobs:
     environment:
       name: ppa
       url: https://launchpad.net/~castellanidavide/+archive/ubuntu/createstructure
+    strategy:
+        matrix:
+          distribution: ["jammy", "focal"]
 
     steps:
     - uses: actions/checkout@v2
@@ -67,6 +70,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install build-essential debhelper devscripts equivs gnupg gnupg2 libcurl4-openssl-dev libssl-dev -y
+
+    - name: Replace distribution
+      run: |
+        sed -i 's/distribution/${{ matrix.distribution }}/g' ./debian/changelog
 
     - uses: oprypin/find-latest-tag@v1
       with:
