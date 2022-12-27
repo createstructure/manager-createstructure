@@ -16,7 +16,7 @@ jobs:
       continue-on-error: true
       uses: docker://rlespinasse/drawio-export:latest
       with:
-        args: -f svg -o ./docs
+        args: -f svg -o ./ docs
     - name: git add & commit & upload repo
       continue-on-error: true
       run: |
