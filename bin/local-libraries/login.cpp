@@ -53,11 +53,11 @@ void Login::execute()
 		 << Login::server_private_key << endl;
 #endif // DEBUG
 
-	// Login::register_server();
+	Login::register_server();
 	Login::configure_ssh();
-	// Login::install_docker();
+	Login::install_docker();
 	Login::install_minikube();
-	// Login::create_onstartup_service();
+	Login::create_onstartup_service();
 }
 
 void Login::execute(Inputs inputs)
@@ -187,7 +187,7 @@ void Login::install_docker()
 			apt-get update > /dev/null; \
 			apt-get install docker-ce docker-ce-cli containerd.io -y > /dev/null; \
 			groupadd docker; \
-			usermod -aG docker ${USER}; \
+			usermod -aG docker $(logname); \
 			service docker start; \
 		} \
 		");
@@ -209,7 +209,7 @@ void Login::install_minikube()
 		} \
 		");
 
-	system("sudo -u ${USER} minikube start");
+	system("sudo -u $(logname) minikube start");
 
 #ifdef DEBUG
 	cout << "Minikube installed & started" << endl;
@@ -217,7 +217,7 @@ void Login::install_minikube()
 
 	// Install Kubernetes
 	system(
-		"sudo -u ${USER} kubectl version > /dev/null || { \
+		"sudo -u $(logname) kubectl version > /dev/null || { \
 			curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -; \
 			echo \"deb https://apt.kubernetes.io/ kubernetes-xenial main\" | tee /etc/apt/sources.list.d/kubernetes.list; \
 			apt-get update > /dev/null; \
@@ -230,18 +230,18 @@ void Login::install_minikube()
 #endif // DEBUG
 
 	// Create K8s secret(s)
-	system("sudo -u ${USER} kubectl delete secret auth --ignore-not-found");   // Delete secret if already exists
-	system("sudo -u ${USER} kubectl delete secret docker --ignore-not-found"); // Delete secret if already exists
+	system("sudo -u $(logname) kubectl delete secret auth --ignore-not-found");   // Delete secret if already exists
+	system("sudo -u $(logname) kubectl delete secret docker --ignore-not-found"); // Delete secret if already exists
 	system((
 			   string("") +
-			   "sudo -u ${USER} kubectl create secret generic auth " +
+			   "sudo -u $(logname) kubectl create secret generic auth " +
 			   "--from-literal=server_name=\"" + Login::servername + "\" " +
 			   "--from-literal=server_password=\"" + Login::server_password + "\" " +
 			   "--from-literal=server_gpg_key=\"" + Login::server_private_key + "\"")
 			   .c_str());
 	system((
 			   string("") +
-			   "sudo -u ${USER} kubectl create secret docker-registry docker" + " " +
+			   "sudo -u $(logname) kubectl create secret docker-registry docker" + " " +
 			   "--docker-server=https://ghcr.io" + " " +
 			   "--docker-username=\"" + Login::username + "\" " +
 			   "--docker-password=\"" + Login::password + "\" " +
@@ -266,9 +266,9 @@ void Login::install_minikube()
 #endif // DEBUG
 
 	system((
-			   "echo '" +
+			   "printf '" +
 			   Login::KUBERNATES_CONFIG +
-			   "' | sudo -u ${USER} kubectl apply -f -")
+			   "' | sudo -u $(logname) kubectl apply -f -")
 			   .c_str());
 }
 
@@ -299,6 +299,8 @@ void Login::create_onstartup_service()
 	service.write(Login::SERVICE.c_str(), Login::SERVICE.length());
 	system(
 		"chmod a+rwx /etc/systemd/system/createstructure.service; \
+		systemctl deamon-reload; \
+		systemctl unmask createstructure.service > /dev/null; \
 		systemctl enable createstructure.service > /dev/null; \
 		");
 
