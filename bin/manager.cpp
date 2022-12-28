@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	if (inputs.exist("--help"))
 	{
 		Help::execute(inputs);
-	} 
+	}
 	else if (inputs.exist("--version"))
 	{
 		Version::execute(inputs);
@@ -26,6 +26,14 @@ int main(int argc, char *argv[])
 	else if (inputs.exist("--login"))
 	{
 		Login::execute(inputs);
+	}
+	else
+	{
+		// Default
+#ifdef DEBUG
+		cout << "Default option" << endl;
+#endif // DEBUG
+		Help::execute(inputs);
 	}
 
 	return 0;

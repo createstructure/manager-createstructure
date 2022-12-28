@@ -1,3 +1,5 @@
 manager
 .vscode
 *.deb
+*.s
+*.o
