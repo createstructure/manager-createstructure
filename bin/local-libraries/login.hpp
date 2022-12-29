@@ -35,53 +35,53 @@ private:
 	string server_password;
 	string server_private_key;
 	string server_public_key;
-	const string SERVICE = "[Unit]\n \
-Description=Start minikube\n \
-After=network.service\n \
-\n \
-[Service]\n \
-ExecStart=minikube start\n \
-Type=oneshot\n \
-RemainAfterExit=yes\n \
-User=$(logname)\n \
-TimeoutSec=0\n \
-\n \
-[Install]\n \
-WantedBy=default.target\n \
-\n \
+	string SERVICE = "[Unit]\n\
+Description=Start minikube\n\
+After=docker.service\n\
+\n\
+[Service]\n\
+ExecStart=minikube start\n\
+Type=oneshot\n\
+RemainAfterExit=yes\n\
+User=$(logname)\n\
+TimeoutSec=0\n\
+\n\
+[Install]\n\
+WantedBy=default.target\n\
+\n\
 ";
 
-	string KUBERNATES_CONFIG = "apiVersion: apps/v1\n \
-kind: ReplicaSet\n \
-metadata:\n \
-  name: manager\n \
-  labels:\n \
-    app: manager\n \
-spec:\n \
-  replicas: 1 # Number of replicas\n \
-  selector:\n \
-    matchLabels:\n \
-      app: core\n \
-  template:\n \
-    metadata:\n \
-      name: core\n \
-      labels:\n \
-        app: core\n \
-    spec:\n \
-      containers:\n \
-      - name: core\n \
-        image: ghcr.io/createstructure/core-createstructure:latest #'beta' to don't release as stable, 'latest' otherwise\n \
-        imagePullPolicy:\"Always\"\n \
-        volumeMounts:\n \
-        - name: auth\n \
-          readOnly: true\n \
-          mountPath:\"/etc/auth\"\n \
-      imagePullSecrets:\n \
-      - name: docker # Secret with Docker config\n \
-      volumes:\n \
-      - name: auth\n \
-        secret:\n \
-          secretName: auth";
+	string KUBERNATES_CONFIG = "apiVersion: apps/v1\n\
+kind: ReplicaSet\n\
+metadata:\n\
+  name: manager\n\
+  labels:\n\
+    app: manager\n\
+spec:\n\
+  replicas: 1 # Number of replicas\n\
+  selector:\n\
+    matchLabels:\n\
+      app: core\n\
+  template:\n\
+    metadata:\n\
+      name: core\n\
+      labels:\n\
+        app: core\n\
+    spec:\n\
+      containers:\n\
+      - name: core\n\
+        image: ghcr.io/createstructure/core-createstructure:beta # latest if stable, beta otherwise\n\
+        imagePullPolicy: \"IfNotPresent\"\n\
+        volumeMounts:\n\
+        - name: auth\n\
+          readOnly: true\n\
+          mountPath: \"/etc/auth\"\n\
+      imagePullSecrets:\n\
+      - name: docker # Secret with Docker config\n\
+      volumes:\n\
+      - name: auth\n\
+        secret:\n\
+          secretName: auth\n";
 
 	void get_username();
 	void generate_server_password();

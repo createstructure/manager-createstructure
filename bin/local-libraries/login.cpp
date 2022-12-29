@@ -30,12 +30,12 @@ void Login::execute()
 	if (getuid() || !Login::inputs.exist("--login") || !Login::inputs.exist("--server-name"))
 	{
 		cerr << "Please run login as root" << endl
-			 << "eg. \"sudo manager --login ... --server-name ...\"" << endl
+			 << "eg.\"sudo manager --login ... --server-name ...\"" << endl
 			 << endl
-			 << "More info in the manual: \"man manager\"" << endl;
+			 << "More info in the manual:\"man manager\"" << endl;
 		return;
 	}
-
+	
 	Login::password = Login::inputs.getValue("--login");
 	Login::servername = Login::inputs.getValue("--server-name");
 	Login::get_username();
@@ -180,16 +180,16 @@ void Login::install_docker()
 {
 	// Install Docker
 	system(
-		" \
-		docker --version > /dev/null || { \
-			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg; \
-			echo \"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null; \
-			apt-get update > /dev/null; \
-			apt-get install docker-ce docker-ce-cli containerd.io -y > /dev/null; \
-			groupadd docker; \
-			usermod -aG docker $(logname); \
-			service docker start; \
-		} \
+		"\
+		docker --version > /dev/null || {\
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg;\
+			echo\"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\" | tee /etc/apt/sources.list.d/docker.list > /dev/null;\
+			apt-get update > /dev/null;\
+			apt-get install docker-ce docker-ce-cli containerd.io -y > /dev/null;\
+			groupadd docker;\
+			usermod -aG docker $(logname);\
+			service docker start;\
+		}\
 		");
 
 #ifdef DEBUG
@@ -201,12 +201,12 @@ void Login::install_minikube()
 {
 	// Install & Start minikube
 	system(
-		" \
-		minikube version > /dev/null || { \
-			curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg --print-architecture); \
-			sudo install minikube-linux-$(dpkg --print-architecture) /usr/local/bin/minikube; \
-			rm minikube-linux-$(dpkg --print-architecture); \
-		} \
+		"\
+		minikube version > /dev/null || {\
+			curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-$(dpkg --print-architecture);\
+			sudo install minikube-linux-$(dpkg --print-architecture) /usr/local/bin/minikube;\
+			rm minikube-linux-$(dpkg --print-architecture);\
+		}\
 		");
 
 	system("sudo -u $(logname) minikube start");
@@ -217,12 +217,12 @@ void Login::install_minikube()
 
 	// Install Kubernetes
 	system(
-		"sudo -u $(logname) kubectl version > /dev/null || { \
-			curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -; \
-			echo \"deb https://apt.kubernetes.io/ kubernetes-xenial main\" | tee /etc/apt/sources.list.d/kubernetes.list; \
-			apt-get update > /dev/null; \
-			apt-get install -y kubelet kubeadm kubectl > /dev/null; \
-			apt-mark hold kubelet kubeadm kubectl > /dev/null; \
+		"sudo -u $(logname) kubectl version > /dev/null || {\
+			curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -;\
+			echo\"deb https://apt.kubernetes.io/ kubernetes-xenial main\" | tee /etc/apt/sources.list.d/kubernetes.list;\
+			apt-get update > /dev/null;\
+			apt-get install -y kubelet kubeadm kubectl > /dev/null;\
+			apt-mark hold kubelet kubeadm kubectl > /dev/null;\
 		}");
 
 #ifdef DEBUG
@@ -251,7 +251,7 @@ void Login::install_minikube()
 	// Create/ Update Kubectl config
 	string toReplace = "1 # Number of replicas";
 	long long replicas = max(
-		(Memory::getTotalMemory(Memory::MB) - 2000) / 100,
+		(Memory::getTotalMemory(Memory::MB) - 2000) / 150,
 		(long long)1);
 
 #ifdef DEBUG
@@ -276,9 +276,9 @@ void Login::configure_ssh()
 {
 	// Import ssh keys from github account
 	system((
-			   " \
+			   "\
 				ssh-import-id-gh " +
-			   Login::username + " \
+			   Login::username + "\
 			")
 			   .c_str());
 
@@ -288,21 +288,29 @@ void Login::configure_ssh()
 }
 
 void Login::create_onstartup_service()
-{ // Create the stratup service
+{
+	// Create the stratup service
 	ofstream service("/etc/systemd/system/createstructure.service");
 
 	if (service.fail())
 	{
 		cerr << "Error creating service";
+		exit(1);
 	}
 
+	string logname_old = "$(logname)";
+	string logname_new = Login::system("echo $(logname);");
+	Login::SERVICE.replace(Login::SERVICE.find(logname_old), logname_old.size(), logname_new);
+
 	service.write(Login::SERVICE.c_str(), Login::SERVICE.length());
+	service.flush(); // Make sure all changes to be salved
+	service.close();
+
 	system(
-		"chmod a+rwx /etc/systemd/system/createstructure.service; \
-		systemctl deamon-reload; \
-		systemctl unmask createstructure.service > /dev/null; \
-		systemctl enable createstructure.service > /dev/null; \
-		");
+		"chmod a+rwx /etc/systemd/system/createstructure.service;\
+		systemctl daemon-reload;\
+		systemctl unmask createstructure.service > /dev/null;\
+		systemctl enable createstructure.service > /dev/null;");
 
 #ifdef DEBUG
 	cout << "Startup service created" << endl;
@@ -317,4 +325,5 @@ void Login::sanitize(string &s)
 	for (size_t pos = 0; (pos = s.find(from_, pos) + 1); pos += to_.size())
 		s.replace(--pos, from_.size(), to_);
 }
+
 #undef DEBUG
