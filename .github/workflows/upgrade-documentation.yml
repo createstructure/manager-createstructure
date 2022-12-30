@@ -106,7 +106,7 @@ jobs:
     - name: _Footer file
       run: |
         cp repo/docs/.templates/_Footer.md wiki/_Footer.md
-        file _Footer.md
+        file wiki/_Footer.md
     - name: _Header file
       run: |
         cp repo/docs/.templates/_Header.md wiki/_Header.md
