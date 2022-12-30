@@ -102,14 +102,13 @@ jobs:
         sed -i 's/docs/docs # documentation/g' Directory-Structure.md
     - name: Rebuild the manager-createstructure locally
       run: |
-        cp repo/.github/workflows/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
+        cp repo/docs/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
     - name: _Footer file
       run: |
-        cp repo/.github/workflows/.templates/_Footer.md wiki/_Footer.md
+        cp repo/docs/.templates/_Footer.md wiki/_Footer.md
     - name: _Header file
       run: |
-        cat repo/.github/workflows/.templates/_Header.md > wiki/_Header.md
-        cat wiki/_Header.md
+        cp repo/docs/.templates/_Header.md wiki/_Header.md
     - name: Recreate README.md
       run: |
         cat wiki/_Header.md > repo/docs/README.md
@@ -117,8 +116,8 @@ jobs:
         cat wiki/Class-UML.md >> repo/docs/README.md
         cat wiki/Directory-Structure.md >> repo/docs/README.md
         cat wiki/changelog >> repo/docs/README.md
-        # cat wiki/Rebuild-the-manager-createstructure-locally.md >> repo/docs/README.md
-        # cat wiki/_Footer.md >> repo/docs/README.md
+        cat wiki/Rebuild-the-manager-createstructure-locally.md >> repo/docs/README.md
+        cat wiki/_Footer.md >> repo/docs/README.md
         sed -i 's/:octocat://g' repo/docs/README.md
         cat repo/docs/README.md
     - name: git add & commit & upload wiki
