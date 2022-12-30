@@ -105,8 +105,8 @@ jobs:
         cp repo/docs/.templates/Rebuild-the-manager-createstructure-locally.md wiki/Rebuild-the-manager-createstructure-locally.md
     - name: _Footer file
       run: |
-        cp repo/docs/.templates/_Footer.md wiki/_Footer.md
-        file wiki/_Footer.md
+        paste repo/docs/.templates/_Footer.md > wiki/_Footer.md
+        cat wiki/_Footer.md
     - name: _Header file
       run: |
         cp repo/docs/.templates/_Header.md wiki/_Header.md
