@@ -112,6 +112,7 @@ jobs:
         cp repo/docs/.templates/_Header.md wiki/_Header.md
     - name: Recreate README.md
       run: |
+        file wiki/_Header.md wiki/Home.md
         paste \
               wiki/_Header.md \
               wiki/Home.md \
