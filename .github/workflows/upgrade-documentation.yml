@@ -114,6 +114,7 @@ jobs:
       run: |
         paste \
               wiki/_Header.md \
+              wiki/Home.md \
               > repo/docs/README.md
         sed -i 's/:octocat://g' repo/docs/README.md
         cat repo/docs/README.md
