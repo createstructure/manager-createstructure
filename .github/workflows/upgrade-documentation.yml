@@ -118,7 +118,7 @@ jobs:
         # cat wiki/changelog >> repo/docs/README.md
         # cat wiki/Rebuild-the-manager-createstructure-locally.md >> repo/docs/README.md
         # cat wiki/_Footer.md >> repo/docs/README.md
-        sed -i 's/:octocat://g' repo/docs/README.md
+        # sed -i 's/:octocat://g' repo/docs/README.md
     - name: git add & commit & upload wiki
       continue-on-error: true
       run: |
