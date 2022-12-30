@@ -112,13 +112,8 @@ jobs:
         cp repo/docs/.templates/_Header.md wiki/_Header.md
     - name: Recreate README.md
       run: |
-        paste wiki/_Header.md \
-              wiki/Home.md \
-              wiki/Class-UML.md \
-              wiki/Directory-Structure.md \
-              wiki/changelog \
-              wiki/Rebuild-the-manager-createstructure-locally.md \
-              wiki/_Footer.md \
+        paste \
+              wiki/_Header.md \
               > repo/docs/README.md
         sed -i 's/:octocat://g' repo/docs/README.md
         cat repo/docs/README.md
