@@ -106,7 +106,6 @@ jobs:
     - name: _Footer file
       run: |
         cp repo/docs/.templates/_Footer.md wiki/_Footer.md
-        cat wiki/_Footer.md
     - name: _Header file
       run: |
         cp repo/docs/.templates/_Header.md wiki/_Header.md
@@ -118,7 +117,7 @@ jobs:
         cat wiki/Directory-Structure.md >> repo/docs/README.md
         cat wiki/changelog >> repo/docs/README.md
         cat wiki/Rebuild-the-manager-createstructure-locally.md >> repo/docs/README.md
-        cat wiki/_Footer.md >> repo/docs/README.md
+        cat repo/docs/.templates/_Footer.md >> repo/docs/README.md
         sed -i 's/:octocat://g' repo/docs/README.md
         cat repo/docs/README.md
     - name: git add & commit & upload wiki
