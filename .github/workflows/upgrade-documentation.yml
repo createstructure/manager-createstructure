@@ -112,13 +112,14 @@ jobs:
         cp repo/docs/.templates/_Header.md wiki/_Header.md
     - name: Recreate README.md
       run: |
-        cat wiki/_Header.md > repo/docs/README.md
-        cat wiki/Home.md >> repo/docs/README.md
-        cat wiki/Class-UML.md >> repo/docs/README.md
-        cat wiki/Directory-Structure.md >> repo/docs/README.md
-        cat wiki/changelog >> repo/docs/README.md
-        cat wiki/Rebuild-the-manager-createstructure-locally.md >> repo/docs/README.md
-        cat wiki/_Footer.md >> repo/docs/README.md
+        paste wiki/_Header.md \
+              wiki/Home.md \
+              wiki/Class-UML.md \
+              wiki/Directory-Structure.md \
+              wiki/changelog \
+              wiki/Rebuild-the-manager-createstructure-locally.md \
+              wiki/_Footer.md \
+              > repo/docs/README.md
         sed -i 's/:octocat://g' repo/docs/README.md
         cat repo/docs/README.md
     - name: git add & commit & upload wiki
