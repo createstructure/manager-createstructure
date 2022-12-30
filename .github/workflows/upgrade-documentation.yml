@@ -113,7 +113,7 @@ jobs:
     - name: Recreate README.md
       run: |
         cat wiki/_Header.md > repo/docs/README.md
-        # cat wiki/Home.md >> repo/docs/README.md
+        cat wiki/Home.md >> repo/docs/README.md
         # cat wiki/Class-UML.md >> repo/docs/README.md
         # cat wiki/Directory-Structure.md >> repo/docs/README.md
         # cat wiki/changelog >> repo/docs/README.md
