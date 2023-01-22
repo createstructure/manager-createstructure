@@ -7,7 +7,7 @@
 Repo for managing the creation of the repos
 ![createstructure/manager-createstructure](https://opengraph.githubassets.com/a3a4d15708489c549f21651878ad646c0fbcb3d26e994358d5b77dcf3304b062/createstructure/manager-createstructure)
 ##  Class UML 
-![Class UML](https://raw.githubusercontent.com/createstructure/manager-createstructure/beta/docs/manager-createstructure-Class-UML.svg)
+![Class UML](https://raw.githubusercontent.com/createstructure/manager-createstructure/main/docs/manager-createstructure-Class-UML.svg)
 ##  Directory structure 
 
 ```
@@ -69,6 +69,12 @@ Repo for managing the creation of the repos
 
 8 directories, 46 files
 ```
+manager (10.01.10~distribution) distribution; urgency=medium
+
+  * Fixed bugs
+
+ -- Castellani Davide <help@castellanidavide.it>  Tue, 22 Jan 2023 19:00:00 +1000
+
 manager (10.01.09~distribution) distribution; urgency=medium
 
   * [Split .hpp files into modules (.hpp and .cpp)](https://github.com/createstructure/manager-createstructure/issues/16)
