@@ -73,7 +73,7 @@ manager (10.01.10~distribution) distribution; urgency=medium
 
   * Fixed bugs
 
- -- Castellani Davide <help@castellanidavide.it>  Tue, 22 Jan 2023 19:00:00 +1000
+ -- Castellani Davide <help@castellanidavide.it>  Sun, 22 Jan 2023 19:00:00 +1000
 
 manager (10.01.09~distribution) distribution; urgency=medium
 
