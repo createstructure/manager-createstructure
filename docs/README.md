@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/a3a4d15708489c549f21651878ad646c0fbcb3d26e994358d5b77dcf3304b062/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/df682b5e89390caae5e4e38010451f2bde8184283657dd0d5bc518933b66b2fa/createstructure/manager-createstructure)
 ##  Class UML 
 ![Class UML](https://raw.githubusercontent.com/createstructure/manager-createstructure/main/docs/manager-createstructure-Class-UML.svg)
 ##  Directory structure 
