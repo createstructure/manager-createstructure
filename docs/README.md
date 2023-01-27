@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/df682b5e89390caae5e4e38010451f2bde8184283657dd0d5bc518933b66b2fa/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/f176602f70c70778c434c9c5388d421f3ad8beab391609a52cb88161bb961dac/createstructure/manager-createstructure)
 ##  Class UML 
 ![Class UML](https://raw.githubusercontent.com/createstructure/manager-createstructure/main/docs/manager-createstructure-Class-UML.svg)
 ##  Directory structure 
@@ -70,6 +70,14 @@ Repo for managing the creation of the repos
 
 8 directories, 47 files
 ```
+manager (10.01.11~distribution) distribution; urgency=medium
+
+  * [Optimize comments](https://github.com/createstructure/manager-createstructure/issues/30)
+  * [Login error to fix](https://github.com/createstructure/manager-createstructure/issues/31)
+  * [Ventilation management](https://github.com/createstructure/manager-createstructure/issues/32)
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 27 Jan 2023 17:30:00 +1000
+
 manager (10.01.10~distribution) distribution; urgency=medium
 
   * Fixed bugs
