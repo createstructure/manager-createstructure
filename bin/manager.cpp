@@ -9,7 +9,7 @@
 using namespace std;
 
 // Definitions
-#define DEBUG
+//#define DEBUG
 
 int main(int argc, char *argv[])
 {

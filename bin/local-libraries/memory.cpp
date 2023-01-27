@@ -1,7 +1,7 @@
 /**
- * memory.cpp
+ * @file memory.cpp
  *
- * Library to mamange memory
+ * @brief Library to mamange memory
  *
  * @author Davide Castellani (@DavideC03)
  */
@@ -13,118 +13,110 @@
 // #define DEBUG
 
 // Function(s)
+/**
+ * @brief Construct a new Memory:: Memory object
+ *
+ * @param unit define memory unit
+ */
 Memory::Memory(MEMORY_UNIT unit)
 {
-        /**
-         * Constructor
-         *
-         * @param unit: memory unit
-         */
-        Memory::memoryUnit = unit;
+	Memory::memoryUnit = unit;
 }
 
+/**
+ * @brief get the RAM memory information
+ */
 void Memory::getMemoryInfo()
 {
-        /**
-         * Get memory info
-         */
-        sysinfo(&memInfo);
+	sysinfo(&memInfo);
 }
 
+/**
+ * @brief Returns the RAM memory in the selected memory unit
+ *
+ * @return long long RAM memory in the selected memory unit
+ */
 long long Memory::getTotalMemory()
 {
-        /**
-         * Get total memory
-         *
-         * @return total RAM memory in bytes
-         */
-        Memory::getMemoryInfo();
-        return round(memInfo.totalram * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
+	Memory::getMemoryInfo();
+	return round(memInfo.totalram * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
 }
 
+/**
+ * @brief Returns free RAM memory in the selected memory unit
+ *
+ * @return long long Free RAM memory in the selected memory unit
+ */
 long long Memory::getFreeMemory()
 {
-        /**
-         * Get free memory
-         *
-         * @return free RAM memory in bytes
-         */
-        Memory::getMemoryInfo();
-        return round(memInfo.freeram * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
+	Memory::getMemoryInfo();
+	return round(memInfo.freeram * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
 }
 
+/**
+ * @brief Returns used RAM memory in the selected memory unit
+ *
+ * @return long long Used RAM memory in the selected memory unit
+ */
 long long Memory::getUsedMemory()
 {
-        /**
-         * Get used memory
-         *
-         * @return used RAM memory in bytes
-         */
-        Memory::getMemoryInfo();
-        return round((memInfo.totalram - memInfo.freeram) * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
+	Memory::getMemoryInfo();
+	return round((memInfo.totalram - memInfo.freeram) * memInfo.mem_unit / pow(1024, (int)Memory::memoryUnit));
 }
 
+/**
+ * @brief Returns used RAM memory in percentage
+ *
+ * @return double Used RAM memory in percentage
+ */
 double Memory::getUsedMemoryPercent()
 {
-        /**
-         * Get used memory percent
-         *
-         * @return used RAM memory percent
-         */
-        Memory::getMemoryInfo();
-        return (memInfo.totalram - memInfo.freeram) * 100 / memInfo.totalram;
+	Memory::getMemoryInfo();
+	return (memInfo.totalram - memInfo.freeram) * 100 / memInfo.totalram;
 }
 
+/**
+ * @brief Returns the RAM memory in the selected memory unit, without inizialization
+ *
+ * @return long long RAM memory in the selected memory unit
+ */
 long long Memory::getTotalMemory(MEMORY_UNIT unit)
 {
-        /**
-         * Get total memory
-         *
-         * @param unit: memory unit
-         * @return total RAM memory in bytes
-         */
-
-        Memory memory(unit);
-        return memory.getTotalMemory();
+	Memory memory(unit);
+	return memory.getTotalMemory();
 }
 
+/**
+ * @brief Returns free RAM memory in the selected memory unit, without inizialization
+ *
+ * @return long long Free RAM memory in the selected memory unit
+ */
 long long Memory::getFreeMemory(MEMORY_UNIT unit)
 {
-        /**
-         * Get free memory
-         *
-         * @param unit: memory unit
-         * @return free RAM memory in bytes
-         */
-
-        Memory memory(unit);
-        return memory.getFreeMemory();
+	Memory memory(unit);
+	return memory.getFreeMemory();
 }
 
+/**
+ * @brief Returns used RAM memory in the selected memory unit, without inizialization
+ *
+ * @return long long Used RAM memory in the selected memory unit
+ */
 long long Memory::getUsedMemory(MEMORY_UNIT unit)
 {
-        /**
-         * Get used memory
-         *
-         * @param unit: memory unit
-         * @return used RAM memory in bytes
-         */
-
-        Memory memory(unit);
-        return memory.getUsedMemory();
+	Memory memory(unit);
+	return memory.getUsedMemory();
 }
 
+/**
+ * @brief Returns used RAM memory in percentage, without inizialization
+ *
+ * @return double Used RAM memory in percentage
+ */
 double Memory::getUsedMemoryPercent(MEMORY_UNIT unit)
 {
-        /**
-         * Get used memory percent
-         *
-         * @param unit: memory unit
-         * @return used RAM memory percent
-         */
-
-        Memory memory(unit);
-        return memory.getUsedMemoryPercent();
+	Memory memory(unit);
+	return memory.getUsedMemoryPercent();
 }
 
 #undef DEBUG

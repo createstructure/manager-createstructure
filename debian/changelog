@@ -1,3 +1,11 @@
+manager (10.01.11~distribution) distribution; urgency=medium
+
+  * [Optimize comments](https://github.com/createstructure/manager-createstructure/issues/30)
+  * [Login error to fix](https://github.com/createstructure/manager-createstructure/issues/31)
+  * [Ventilation management](https://github.com/createstructure/manager-createstructure/issues/32)
+
+ -- Castellani Davide <help@castellanidavide.it>  Fri, 27 Jan 2023 17:30:00 +1000
+
 manager (10.01.10~distribution) distribution; urgency=medium
 
   * Fixed bugs

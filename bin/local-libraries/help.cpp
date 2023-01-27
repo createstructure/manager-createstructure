@@ -1,7 +1,7 @@
 /**
- * help.cpp
+ * @file help.cpp
  *
- * Library to manage help messages
+ * @brief Library to manage help messages
  *
  * @author Davide Castellani (@DavideC03)
  */
@@ -12,33 +12,32 @@
 // Definitions
 // #define DEBUG
 
-
 // Function(s)
+/**
+ * @brief Construct a new Help:: Help object
+ * 
+ * @param inputs all the inputs given by command-line
+ */
 Help::Help(Inputs inputs)
 {
-	/**
-	 * Constructor
-	 * 
-	 * @param inputs Inputs object
-	 */
 	Help::inputs = inputs;
 }
 
+/**
+ * @brief Execute help, open man documentation
+ */
 void Help::execute()
 {
-	/**
-	 * Execute
-	 */
 	system("man manager"); // Open the package manual
 }
 
+/**
+ * @brief Execute help, without inizialization
+ * 
+ * @param inputs 
+ */
 void Help::execute(Inputs inputs)
 {
-	/**
-	 * Execute
-	 * 
-	 * @param inputs Inputs object
-	 */
 	Help Help(inputs);
 	Help.execute();
 }
