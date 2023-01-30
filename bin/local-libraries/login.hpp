@@ -70,7 +70,7 @@ spec:\n\
     spec:\n\
       containers:\n\
       - name: core\n\
-        image: ghcr.io/createstructure/core-createstructure:beta # latest if stable, beta otherwise\n\
+        image: ghcr.io/createstructure/core-createstructure:latest # latest if stable, beta otherwise\n\
         imagePullPolicy: \"IfNotPresent\"\n\
         volumeMounts:\n\
         - name: auth\n\

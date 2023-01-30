@@ -1,3 +1,9 @@
+manager (10.01.13~distribution) distribution; urgency=medium
+
+  * Fixed bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 30 Jan 2023 14:00:00 +1000
+
 manager (10.01.12~distribution) distribution; urgency=medium
 
   * Added ONE_KUBERNATES_POD, for test it's possible to generate only one pod
