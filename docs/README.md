@@ -5,7 +5,7 @@
 
 ##  Description 
 Repo for managing the creation of the repos
-![createstructure/manager-createstructure](https://opengraph.githubassets.com/f176602f70c70778c434c9c5388d421f3ad8beab391609a52cb88161bb961dac/createstructure/manager-createstructure)
+![createstructure/manager-createstructure](https://opengraph.githubassets.com/a2e9fbb4a50927570a098eaf19409f00248c85d50e52c954df5c830e3ee26b92/createstructure/manager-createstructure)
 ##  Class UML 
 ![Class UML](https://raw.githubusercontent.com/createstructure/manager-createstructure/main/docs/manager-createstructure-Class-UML.svg)
 ##  Directory structure 
@@ -70,6 +70,12 @@ Repo for managing the creation of the repos
 
 8 directories, 47 files
 ```
+manager (10.01.13~distribution) distribution; urgency=medium
+
+  * Fixed bug
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 30 Jan 2023 14:00:00 +1000
+
 manager (10.01.12~distribution) distribution; urgency=medium
 
   * Added ONE_KUBERNATES_POD, for test it's possible to generate only one pod
