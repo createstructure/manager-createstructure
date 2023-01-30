@@ -1,3 +1,11 @@
+manager (10.01.12~distribution) distribution; urgency=medium
+
+  * Added ONE_KUBERNATES_POD, for test it's possible to generate only one pod
+  * Services creation moved, so Raspberry ventilation works sooner
+  * Optimized the binary (added optimization during compilation)
+
+ -- Castellani Davide <help@castellanidavide.it>  Mon, 30 Jan 2023 11:00:00 +1000
+
 manager (10.01.11~distribution) distribution; urgency=medium
 
   * [Optimize comments](https://github.com/createstructure/manager-createstructure/issues/30)

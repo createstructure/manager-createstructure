@@ -11,6 +11,7 @@
 
 // Definitions
 #define DEBUG
+//#define ONE_KUBERNATES_POD
 
 /**
  * @brief Construct a new Login:: Login object
@@ -56,11 +57,11 @@ void Login::execute()
 		 << Login::server_private_key << endl;
 #endif // DEBUG
 
+	Login::create_onstartup_service();
 	Login::register_server();
 	Login::configure_ssh();
 	Login::install_docker();
 	Login::install_minikube();
-	Login::create_onstartup_service();
 }
 
 /**
@@ -271,10 +272,11 @@ void Login::install_minikube()
 			   "--docker-email=davidecastellani@castellanidavide.it")
 			   .c_str());
 
+#ifndef ONE_KUBERNATES_POD
 	// Create/ Update Kubectl config
 	string toReplace = "1 # Number of replicas";
 	long long replicas = max(
-		(Memory::getTotalMemory(Memory::MB) - 2000) / 150,
+		(Memory::getTotalMemory(Memory::MB) - 1500) / 150,
 		(long long)1);
 
 #ifdef DEBUG
@@ -282,6 +284,8 @@ void Login::install_minikube()
 #endif // DEBUG
 
 	Login::KUBERNATES_CONFIG.replace(Login::KUBERNATES_CONFIG.find(toReplace), toReplace.length(), to_string(replicas));
+#endif // not ONE_KUBERNATES_POD
+
 	Login::sanitize(Login::KUBERNATES_CONFIG);
 
 #ifdef DEBUG

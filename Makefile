@@ -4,7 +4,8 @@ all:
 	make compile
 
 compile:
-	g++ -Wall ./bin/manager.cpp \
+	g++ -Wall -O3 \
+		./bin/manager.cpp \
 		./bin/local-libraries/help.cpp \
 		./bin/local-libraries/login.cpp \
 		./bin/local-libraries/memory.cpp \
